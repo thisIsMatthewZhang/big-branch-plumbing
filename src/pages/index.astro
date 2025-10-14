@@ -1,5 +1,12 @@
 ---
-
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+import FooterBackdrop from '../components/FooterBackdrop.astro';
+import SubFooter from '../components/SubFooter.astro';
+import ReviewStar from '../components/ReviewStar.astro';
+import Image from 'astro/components/Image.astro';
+import ManFixingPipe from '../assets/man-fixing-pipe.jpg';
+import PlumberTeam from '../assets/plumber-team.png';
 ---
 
 <html lang="en">
@@ -8,9 +15,96 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Big Branch Plumbing</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<div class="bg-amber-100"> <!-- REMOVE PLACEHOLDER COLOR LATER -->
+			<div class="flex justify-between m-2.5">
+				<h1 class="text-center justify-start w-max"> 
+					<span class="text-red-800 text-3xl font-normal font-[Libre_Franklin]"> Big Branch </br></span> 
+					<span class="text-red-800 text-3xl font-bold font-[Libre_Franklin]"> Plumbing </span> 
+				</h1>
+				<Navigation />
+			</div>
+			<div class="flex justify-center justify-self-end">
+				<div class="absolute w-[450px] h-[450px] bg-[#d9d9d9]/0 rounded-full border-[3px] border-[#8c1010] right-2"></div>
+				<div class="absolute w-[450px] h-[450px] bg-[#d9d9d9]/0 rounded-full border-[3px] border-[#de3a3a] right-8"></div>
+				<img class="absolute right-4 bottom-28" src="src/assets/big-truck.png" alt="Big truck" width="650" height="650">
+			</div>
+			<div class="w-[600px] text-[#25272d] text-7xl font-semibold leading-[91.20px] ml-10 mt-10"> Licensed, Reliable Plumbing on the Northshore </div>
+			<button type="button" id="book-now" class="flex items-center justify-center rounded-4xl bg-red-800 w-[160px] h-[50px] shadow-sm shadow-black py-1 ml-10 mt-10 cursor-pointer">
+				<div data-svg-wrapper class="self-end">
+					<svg width="24" height="16" viewBox="0 0 71 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M70 34C68.3736 34 55.8796 34 37.4057 33.9045C24.052 33.8354 16.6236 28.9863 12.6561 26.2016C4.38279 20.3947 2.93857 12.8221 1.6859 7.95895C1.55036 7.18316 1.27929 6.41895 1.13965 5.26105C1.00001 4.10316 1 2.57474 1 1" stroke="#F2F2F2" stroke-width="4" stroke-linecap="round"/>
+					</svg>
+				</div>
+				<span class="text-white font-normal text-[20px]"> Book Now </span>
+				<div data-svg-wrapper class="self-start">
+					<svg width="24" height="16" viewBox="0 0 56 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M1.52075 1.88251C2.76658 1.88251 12.3368 1.88251 26.4876 1.98633C36.7164 2.06137 42.4065 7.33143 45.4456 10.3579C51.7828 16.6689 52.8891 24.8988 53.8486 30.1842C53.9525 31.0273 54.1601 31.8579 54.2671 33.1163C54.374 34.3747 54.374 36.0358 54.374 37.7472" stroke="#F2F2F2" stroke-width="4" stroke-linecap="round"/>
+					</svg>
+				</div>
+			</button>
+			<div class="opacity-0 relative flex items-center justify-between justify-self-center w-[1400px] h-[140px] bg-[#ff9898] border-[3px] border-[#de3a3a] rounded-[36px] shadow-sm shadow-black top-24 px-10">
+				<div class="flex flex-col text-2xl items-center">
+					<div data-svg-wrapper class="relative">
+						<svg width="48" height="60" viewBox="0 0 48 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M24 3.75001L25.1491 1.06668C24.786 0.911015 24.395 0.83075 24 0.83075C23.6049 0.83075 23.2139 0.911015 22.8508 1.06668L24 3.75001ZM24 56.25L22.5533 58.7817C22.9939 59.0334 23.4925 59.1657 24 59.1657C24.5074 59.1657 25.006 59.0334 25.4466 58.7817L24 56.25ZM22.8508 1.06959L4.20163 9.05834L6.49996 14.425L25.1491 6.43334L22.8508 1.06959ZM0.666626 14.4221V34.4304H6.49996V14.4221H0.666626ZM10.9537 52.155L22.5533 58.7817L25.4466 53.7183L13.847 47.0888L10.9537 52.155ZM25.4466 58.7817L37.0462 52.155L34.1529 47.0888L22.5533 53.7183L25.4466 58.7817ZM47.3333 34.4275V14.425H41.5V34.4333L47.3333 34.4275ZM43.7983 9.06126L25.1491 1.06959L22.8508 6.43043L41.5 14.425L43.7983 9.06126ZM47.3333 14.425C47.3332 13.2836 46.9982 12.1673 46.3698 11.2144C45.7415 10.2615 44.8474 9.51098 43.7983 9.06126L41.5 14.425H47.3333ZM37.0462 52.155C40.1718 50.3689 42.7696 47.7911 44.5762 44.6773C46.3828 41.5635 47.334 38.0274 47.3333 34.4275H41.5C41.4996 36.9985 40.8196 39.5238 39.5289 41.7473C38.2381 43.9708 36.3824 45.8135 34.15 47.0888L37.0462 52.155ZM0.666626 34.4275C0.666465 38.0269 1.61789 41.5624 3.42446 44.6757C5.23103 47.7889 7.82854 50.3692 10.9537 52.155L13.847 47.0888C11.616 45.8137 9.76145 43.9717 8.47126 41.7493C7.18106 39.5269 6.50101 37.0031 6.49996 34.4333L0.666626 34.4275ZM4.20163 9.05834C3.15208 9.50826 2.25767 10.2592 1.62929 11.2127C1.0009 12.1662 0.666182 13.2831 0.666626 14.425H6.49996L4.20163 9.05834Z" fill="#8C1111"/>
+						<path d="M32.75 24.1667L21.0833 35.8334L15.25 30" stroke="#8C1111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+					</div>
+					Licensed & Insured
+				</div>
+				<div class="flex flex-col text-2xl items-center">
+					<div data-svg-wrapper class="relative">
+						<svg width="59" height="59" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M31.69 25.85C30.23 25.485 28.77 24.755 27.675 23.66C26.58 23.295 26.215 22.2 26.215 21.47C26.215 20.74 26.58 19.645 27.31 19.28C28.405 18.55 29.5 17.82 30.595 18.185C32.785 18.185 34.61 19.28 35.705 20.74L38.99 16.36C37.8951 15.265 36.8 14.535 35.705 13.805C34.61 13.075 33.15 12.71 31.69 12.71V7.59999H27.31V12.71C25.485 13.075 23.66 14.17 22.2 15.63C20.74 17.455 19.645 19.645 20.01 21.835C20.01 24.025 20.74 26.215 22.2 27.675C24.025 29.5 26.58 30.595 28.77 31.69C29.865 32.055 31.325 32.785 32.42 33.515C33.15 34.245 33.515 35.34 33.515 36.435C33.515 37.53 33.15 38.625 32.42 39.72C31.325 40.815 29.865 41.18 28.77 41.18C27.31 41.18 25.4851 40.815 24.39 39.72C23.295 38.99 22.2 37.895 21.47 36.8L17.82 40.815C18.915 42.275 20.01 43.37 21.47 44.465C23.295 45.56 25.485 46.655 27.675 46.655V51.4H31.69V45.925C33.8801 45.56 35.705 44.465 37.1651 43.005C38.99 41.18 40.085 38.26 40.085 35.705C40.085 33.515 39.355 30.96 37.53 29.5C35.705 27.675 33.8801 26.58 31.69 25.85ZM29.5 0.299988C13.44 0.299988 0.300049 13.44 0.300049 29.5C0.300049 45.56 13.44 58.7 29.5 58.7C45.56 58.7 58.7 45.56 58.7 29.5C58.7 13.44 45.56 0.299988 29.5 0.299988ZM29.5 54.685C15.63 54.685 4.31505 43.37 4.31505 29.5C4.31505 15.63 15.63 4.31499 29.5 4.31499C43.37 4.31499 54.685 15.63 54.685 29.5C54.685 43.37 43.37 54.685 29.5 54.685Z" fill="#8C1111"/>
+						</svg>
+					</div>
+					Upfront Pricing
+				</div>
+				<div class="flex flex-col text-2xl items-center">
+					<div data-svg-wrapper class="relative">
+						<svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M49.4559 20.75H35.2948L37.2087 11.18C37.4773 9.83919 37.445 8.45547 37.114 7.12867C36.783 5.80187 36.1616 4.56508 35.2948 3.50752C34.4302 2.44814 33.3403 1.59483 32.1044 1.00971C30.8685 0.424585 29.5177 0.122357 28.1503 0.125017C26.3188 0.125017 24.6894 1.35427 24.2274 2.98364L22.3134 8.28839C20.1783 14.2033 17.219 19.7873 13.523 24.875H6.3125C2.90112 24.875 0.125 27.6511 0.125 31.0625V51.6875C0.125 55.0989 2.90112 57.875 6.3125 57.875H43.0126C44.7726 57.8814 46.4881 57.322 47.906 56.2792C49.3238 55.2364 50.369 53.7655 50.8872 52.0835L57.3305 31.4585C57.7233 30.2245 57.8171 28.9148 57.6041 27.6374C57.3911 26.3601 56.8774 25.1516 56.1054 24.1119C55.3431 23.0643 54.3425 22.2131 53.1863 21.6285C52.0301 21.0439 50.7514 20.7428 49.4559 20.75ZM4.25 51.6875V31.0625C4.25 30.5155 4.4673 29.9909 4.85409 29.6041C5.24089 29.2173 5.76549 29 6.3125 29H12.5V53.75H6.3125C5.76549 53.75 5.24089 53.5327 4.85409 53.1459C4.4673 52.7591 4.25 52.2345 4.25 51.6875ZM53.3994 30.2293L46.9561 50.8543C46.694 51.6939 46.1704 52.4277 45.4617 52.9487C44.753 53.4696 43.8963 53.7504 43.0168 53.75H16.6291V27.614C20.661 22.1295 23.8827 16.0932 26.195 9.69089L28.1544 4.25414C29.693 4.25414 31.1367 4.93889 32.1102 6.12689C33.0879 7.31902 33.4756 8.86589 33.1704 10.3715L30.7655 22.4083C30.7056 22.7077 30.713 23.0167 30.7871 23.313C30.8612 23.6092 31.0002 23.8853 31.194 24.1213C31.3877 24.3573 31.6315 24.5474 31.9077 24.6777C32.1838 24.8081 32.4855 24.8754 32.7909 24.875H49.4683C50.7965 24.875 52.0092 25.4855 52.793 26.558C53.5767 27.6305 53.8036 28.9629 53.4076 30.2334L53.3994 30.2293Z" fill="#8C1111"/>
+						</svg>
+					</div>
+					Workmanship Guaranteed
+				</div>
+			</div>
+		</div>
+		<div id="about-us"> 
+			<!-- About Us -->
+			 <div class="flex"> 
+				<div data-svg-wrapper>
+					<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="13" cy="13" r="13" fill="8c1111"/>	
+					</svg>
+				</div>
+				<div data-svg-wrapper>
+					<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M19.0825 12.0842C18.9781 11.9869 18.8943 11.8696 18.8363 11.7393C18.7782 11.609 18.747 11.4683 18.7445 11.3256C18.7419 11.183 18.7682 11.0413 18.8216 10.909C18.8751 10.7767 18.9546 10.6565 19.0555 10.5556C19.1564 10.4547 19.2766 10.3752 19.4089 10.3217C19.5412 10.2683 19.6829 10.242 19.8255 10.2446C19.9682 10.2471 20.1089 10.2783 20.2392 10.3364C20.3696 10.3944 20.4869 10.4782 20.5841 10.5826L26.2508 16.2492C26.4498 16.4484 26.5615 16.7185 26.5615 17.0001C26.5615 17.2816 26.4498 17.5517 26.2508 17.7509L20.5841 23.4176C20.4869 23.5219 20.3696 23.6057 20.2392 23.6637C20.1089 23.7218 19.9682 23.753 19.8255 23.7556C19.6829 23.7581 19.5412 23.7318 19.4089 23.6784C19.2766 23.625 19.1564 23.5454 19.0555 23.4445C18.9546 23.3436 18.8751 23.2234 18.8216 23.0912C18.7682 22.9588 18.7419 22.8171 18.7445 22.6745C18.747 22.5318 18.7782 22.3911 18.8363 22.2608C18.8943 22.1305 18.9781 22.0132 19.0825 21.9159L22.9358 18.0626H9.20829C8.9265 18.0626 8.65625 17.9506 8.45699 17.7514C8.25773 17.5521 8.14579 17.2818 8.14579 17.0001C8.14579 16.7183 8.25773 16.448 8.45699 16.2488C8.65625 16.0495 8.9265 15.9376 9.20829 15.9376L22.9358 15.9376L19.0825 12.0842Z" fill="#A43B3B"/>
+					</svg>
+				</div>
+			 	<span class="text-red-800 font-semibold"> About Us </span>
+				<ReviewStar />
+				<ReviewStar />
+				<ReviewStar />
+				<ReviewStar />
+				<ReviewStar />
+			 </div>
+			 <span class="text-5xl font-semibold"> Commitment </br> towards excellence </span>
+			 <Image src={ ManFixingPipe } alt="man fixing pipe" />
+		</div>
+		<div id="service-list">
+			<!-- Service List -->
+		</div>
+		<div id="latest-blogs">
+			<!-- Latest Blogs -->
+		</div>
+
+		<FooterBackdrop>
+			<SubFooter />
+		</FooterBackdrop>
 	</body>
 </html>

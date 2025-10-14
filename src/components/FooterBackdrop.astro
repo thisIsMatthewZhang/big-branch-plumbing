@@ -1,0 +1,26 @@
+---
+import '../styles/global.css';
+import Image from 'astro/components/Image.astro';
+import Backdrop from '../assets/footer-backdrop.jpg';
+import SubFooter from '../components/SubFooter.astro';
+---
+
+
+<div class="flex flex-col justify-center items-center">
+    <div>
+        <Image src={ Backdrop } alt="backdrop for subfooter" width="1475"></Image>
+    </div>
+    <div class="absolute flex flex-col items-center">
+        <span class="text-6xl font-semibold text-white text-center"> Emergency or Routine </br> Plumbing? </br> We've Got You Covered. </span>
+        <div class="flex my-16">
+            <button type="button" class="bg-white text-[#784736] font-semibold rounded-4xl p-[6px_24px] cursor-pointer">
+                Book Now    
+            </button>
+            <button type="button" class="text-white font-semibold border-[2px] border-[white] rounded-4xl p-[6px_24px] cursor-pointer ml-20">
+                Call Today
+            </button>
+        </div>
+        <SubFooter />
+    </div>
+</div>
+
