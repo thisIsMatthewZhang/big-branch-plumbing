@@ -1,0 +1,78 @@
+---
+import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import CompanyHeader from '../components/CompanyHeader.astro';
+import FooterBackdrop from '../components/FooterBackdrop.astro';
+
+
+---
+
+<Layout>
+    <div id="contact-page-container" class="bg-[#fef4f4] w-screen h-auto">
+        <CompanyHeader />
+        <Navigation pos="bottom-20"/>
+        <div class="flex flex-col justify-center items-center bg-[#c52121] rounded-md w-auto h-auto py-5 my-5">
+            <button type="button" class="text-[#c52121] text-center bg-white rounded-md w-auto h-auto p-[5px_18px] cursor-pointer">
+                Book Now
+            </button>
+            <span class="text-3xl text-white"> Get a free quote today </span>
+        </div>
+        <div class="flex justify-around">
+            <div id="contact-left-side" class="flex flex-col">
+                <span class="text-3xl font-[Golos_Text] font-semibold"> Contact Us </span>
+                <span class="text-[12px] font-[Golos_Text] font-semibold text-[#63656a]"> Get in touch with us by using the inquiry form or </br> the contact details below </span>
+                </br>
+                <span class="text-[12px] font-[Golos_Text] font-semibold text-[#63656a]"> bigbranchplumbing@gmail.com </span>
+                </br>
+                <span class="text-[12px] font-[Golos_Text] font-semibold text-[#63656a]"> (985) 626-5711 </span>
+                </br>
+                <span class="text-[12px] font-[Golos_Text] font-semibold text-[#63656a]"> 21357 Marlong Ln, Mandeville, LA 70471 </span>
+                </br>
+                <div class="flex">
+                    <div>
+                        <span class="text-[12px] font-semibold block underline text-[#63656a]"> Common Problems </span>
+                        <span class="text-[12px] font-semibold block text-[#63656a] w-[20ch]">  Check out our blog for common plumbing issues and easy fixes. </span>
+                    </div>
+                    <div>
+                        <span class="text-[12px] font-semibold block underline text-[#63656a]"> Career Inquiries </span>
+                        <span class="text-[12px] font-semibold block text-[#63656a] w-[20ch]">  Contact us with any career inquiries or questions. </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="contact-right-side" class="flex flex-col justify-self-end bg-white rounded-md w-auto h-auto p-4">
+                <span class="text-2xl font-[Golos_Text] font-semibold"> Get in Touch </span>
+                <span class="text-[12px]"> You can reach us anytime </span>
+                <form class="flex flex-col" action="" method="post">
+                    <div class="flex">
+                        <label class="rounded-sm border-[1px] border-gray-300 focus-within:ring-4 focus-within:ring-[#fdc9c9] transition-all m-3 p-1" for="first-name">
+                            <input class="w-full outline-none" type="text" id="first-name" placeholder="First name" required>
+                        </label>
+                        <label class="rounded-sm border-[1px] border-gray-300 focus-within:ring-4 focus-within:ring-[#fdc9c9] transition-all m-3 p-1" for="last-name">
+                            <input class="w-full outline-none" type="text" id="last-name" placeholder="Last name" required>
+                        </label>
+                    </div>
+                    <label class="flex rounded-sm border-[1px] border-gray-300 focus-within:ring-4 focus-within:ring-[#fdc9c9] transition-all m-3 p-1" for="email">
+                        <div data-svg-wrapper class="mr-2.5">
+                            <svg width="23" height="23" viewBox="0 0 30 27.5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30.25 8.25C30.25 6.7375 29.0125 5.5 27.5 5.5H5.5C3.9875 5.5 2.75 6.7375 2.75 8.25V24.75C2.75 26.2625 3.9875 27.5 5.5 27.5H27.5C29.0125 27.5 30.25 26.2625 30.25 24.75V8.25ZM27.5 8.25L16.5 15.125L5.5 8.25H27.5ZM27.5 24.75H5.5V11L16.5 17.875L27.5 11V24.75Z" fill="#9A9CA0"/>
+                            </svg>
+                        </div>
+                        <input class="w-full outline-none" type="email" id="email" placeholder="Your email" required>
+                    </label>
+                    <label class="rounded-sm border-[1px] border-gray-300 focus-within:ring-4 focus-within:ring-[#fdc9c9] transition-all m-3 p-1" for="phone">
+                        <input class="w-full outline-none" type="tel" id="phone" placeholder="Phone number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                    </label>
+                    <label class="rounded-sm border-[1px] border-gray-300 focus-within:ring-4 focus-within:ring-[#fdc9c9] transition-all m-3 p-1" for="message">
+                        <textarea class="w-full outline-none" rows="4" id="message" placeholder="How can we help?" required></textarea>
+                    </label>
+                    <button type="submit" class="text-white bg-[#c52121] rounded-3xl py-2.5 cursor-pointer">
+                        Submit request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <FooterBackdrop />
+</Layout>

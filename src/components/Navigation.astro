@@ -1,8 +1,10 @@
 ---
 import '../styles/global.css';
+
+const { pos } = Astro.props;
 ---
 
-<div class="flex justify-start">
+<div class=`relative flex justify-start justify-self-end ${ pos }`>
     <a href="/" class="text-zinc-700 text-2xl font-medium font-[Golos_Text] cursor-pointer"> Home </a>
     <a href="/about/" class="text-zinc-700 text-2xl font-medium font-[Golos_Text] ml-5 cursor-pointer"> About </a>
     <a href="/services/" class="text-zinc-700 text-2xl font-medium font-[Golos_Text] ml-5 cursor-pointer"> Service </a>
