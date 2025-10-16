@@ -5,7 +5,6 @@ import Navigation from '../components/Navigation.astro';
 import CompanyHeader from '../components/CompanyHeader.astro';
 import FooterBackdrop from '../components/FooterBackdrop.astro';
 
-
 ---
 
 <Layout>
@@ -19,7 +18,7 @@ import FooterBackdrop from '../components/FooterBackdrop.astro';
             <span class="text-3xl text-white"> Get a free quote today </span>
         </div>
         <div class="flex justify-around">
-            <div id="contact-left-side" class="flex flex-col">
+            <div id="contact-start" class="flex flex-col my-8">
                 <span class="text-3xl font-[Golos_Text] font-semibold"> Contact Us </span>
                 <span class="text-[12px] font-[Golos_Text] font-semibold text-[#63656a]"> Get in touch with us by using the inquiry form or </br> the contact details below </span>
                 </br>
@@ -41,7 +40,7 @@ import FooterBackdrop from '../components/FooterBackdrop.astro';
                 </div>
             </div>
             
-            <div id="contact-right-side" class="flex flex-col justify-self-end bg-white rounded-md w-auto h-auto p-4">
+            <div id="contact-end" class="flex flex-col justify-self-end bg-white rounded-md w-auto h-auto p-4 my-8">
                 <span class="text-2xl font-[Golos_Text] font-semibold"> Get in Touch </span>
                 <span class="text-[12px]"> You can reach us anytime </span>
                 <form class="flex flex-col" action="" method="post">
@@ -74,5 +73,4 @@ import FooterBackdrop from '../components/FooterBackdrop.astro';
             </div>
         </div>
     </div>
-    <FooterBackdrop />
 </Layout>

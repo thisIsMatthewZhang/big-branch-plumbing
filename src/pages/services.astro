@@ -1,0 +1,73 @@
+---
+import '../styles/global.css';
+import Layout from "../layouts/Layout.astro";
+import CompanyHeader from '../components/CompanyHeader.astro';
+import Navigation from '../components/Navigation.astro';
+import ServiceContainer from '../components/ServiceContainer.astro';
+import Image from 'astro/components/Image.astro';
+import Toilet from '../assets/toilet.png';
+import BathTub from '../assets/bathtub.png';
+import Sink from '../assets/drain.png';
+import DrainPipes from '../assets/drain-pipe.png';
+---
+
+<Layout>
+    <div id="service-page-container" class="w-screen h-auto">
+        <CompanyHeader />
+        <Navigation pos="bottom-20"/>
+        <div class="flex flex-col m-10"> 
+            <span class="text-4xl font-semibold"> Reliable Plumbing Solutions, </br> Simplified For You </span>
+            <span class="text-[#63656a] font-semibold"> Experience top-notch plumbing services with fast response time, </br> expert repairs, and long-lasting solutions - all in one place. </span>
+        </div>
+
+
+        <div class="grid grid-cols-4 gap-5 m-10">
+            <div>
+                <span class="text-red-800 font-semibold leading-loose h-[10%]"> Septic System Services </span>
+                <Image class="rounded-sm h-[70%]" src={ Toilet } alt="nice toilet" />
+                <span class="text-[12px] text-[#63656a] h-[20%]"> Get in touch with us today by using the inquiry form or the contact details below </span>
+            </div>
+            <div>
+                <span class="text-red-800 font-semibold leading-loose h-[10%]"> Fixture Installation </span>
+                <Image class="rounded-sm h-[70%]" src={ BathTub } alt="bathtub"/>
+                <span class="text-[12px] text-[#63656a] h-[20%]"> Get in touch with us today by using the inquiry form or the contact details below </span>
+            </div>
+            <div>
+                <span class="text-red-800 font-semibold leading-loose h-[10%]"> Drain Cleaning </span>
+                <Image class="rounded-sm h-[70%]" src={ Sink } alt="sink drain"/>
+                <span class="text-[12px] text-[#63656a] h-[20%]"> Get in touch with us today by using the inquiry form or the contact details below </span>
+            </div>
+            <div>
+                <span class="text-red-800 font-semibold leading-loose h-[10%]"> Leak Repair </span>
+                <Image class="rounded-sm min-h-53 h-[70%]" src={ DrainPipes } alt="drain pipes"/>
+                <span class="text-[12px] text-[#63656a] h-[20%]"> Get in touch with us today by using the inquiry form or the contact details below </span>
+            </div>
+        </div>
+        <div class="flex flex-col m-10">
+            <span class="text-[#63656a] font-semibold"> Services </span>
+            <span class="text-2xl font-semibold"> Expert Plumbing Services for </br> Every Home and Business Need. </span>
+            <div class="ml-2.5 mt-4 mb-10">
+                <button class="bg-red-800 text-white rounded-4xl px-8 py-2 cursor-pointer" type="button">
+                    All
+                </button>
+                <button class="bg-white text-gray-400 rounded-4xl border-[1px] border-[gray] p-2 cursor-pointer" type="button">
+                    Common Services
+                </button>
+            </div>
+        </div>
+        <div class="grid grid-cols-3 grid-rows-4 gap-y-4 mb-10">
+            <ServiceContainer serviceType="Leak Repair" />
+            <ServiceContainer serviceType="Leak Repair" />
+            <ServiceContainer serviceType="Leak Repair" />
+            <ServiceContainer serviceType="Leak Repair" />
+            <ServiceContainer serviceType="Leak Repair" />
+            <ServiceContainer serviceType="Leak Repair" />
+            <ServiceContainer serviceType="Leak Repair" />
+            <ServiceContainer serviceType="Leak Repair" />
+            <ServiceContainer serviceType="Leak Repair" />
+            <ServiceContainer serviceType="Leak Repair" />
+            <ServiceContainer serviceType="Leak Repair" />
+            <ServiceContainer serviceType="Leak Repair" />
+        </div>
+    </div>
+</Layout>
