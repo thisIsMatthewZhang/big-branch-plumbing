@@ -5,7 +5,7 @@ import Navigation from '../components/Navigation.astro';
 import ReviewStar from '../components/ReviewStar.astro';
 import Image from 'astro/components/Image.astro';
 import ManFixingPipe from '../assets/man-fixing-pipe.jpg';
-import PlumberTeam from '../assets/plumber-team.png';
+import PlumberTeamRed from '../assets/plumber-team-red.png';
 import CompanyHeader from '../components/CompanyHeader.astro';
 import BigTruck from '../assets/big-truck.png';
 import SinkDrain from '../assets/drain.png';
@@ -15,6 +15,7 @@ import CircleIcon from '../components/CircleIcon.astro';
 import BathtubIcon from '../assets/bathtub-icon.svg';
 import DropletIcon from '../assets/water-droplet.svg';
 import PipeIcon from '../assets/pipe-icon.svg';
+import CheckMarkIcon from '../assets/check-mark-icon.svg';
 ---
 
 <Layout>
@@ -71,43 +72,66 @@ import PipeIcon from '../assets/pipe-icon.svg';
 			</div>
 		</div>
 	</div>
-	<div id="about-us" class="w-screen h-auto"> 
-		<div class="flex m-10"> 
-			<div data-svg-wrapper class="relative flex gap-0 right-5 top-1.5">
-				<svg class="relative left-3 top-0.5" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<circle cx="13" cy="13" r="13" fill="#8c1111"/>	
-				</svg>
-			
-				<svg class="relative left-0.5 bottom-0.5" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M19.0825 12.0842C18.9781 11.9869 18.8943 11.8696 18.8363 11.7393C18.7782 11.609 18.747 11.4683 18.7445 11.3256C18.7419 11.183 18.7682 11.0413 18.8216 10.909C18.8751 10.7767 18.9546 10.6565 19.0555 10.5556C19.1564 10.4547 19.2766 10.3752 19.4089 10.3217C19.5412 10.2683 19.6829 10.242 19.8255 10.2446C19.9682 10.2471 20.1089 10.2783 20.2392 10.3364C20.3696 10.3944 20.4869 10.4782 20.5841 10.5826L26.2508 16.2492C26.4498 16.4484 26.5615 16.7185 26.5615 17.0001C26.5615 17.2816 26.4498 17.5517 26.2508 17.7509L20.5841 23.4176C20.4869 23.5219 20.3696 23.6057 20.2392 23.6637C20.1089 23.7218 19.9682 23.753 19.8255 23.7556C19.6829 23.7581 19.5412 23.7318 19.4089 23.6784C19.2766 23.625 19.1564 23.5454 19.0555 23.4445C18.9546 23.3436 18.8751 23.2234 18.8216 23.0912C18.7682 22.9588 18.7419 22.8171 18.7445 22.6745C18.747 22.5318 18.7782 22.3911 18.8363 22.2608C18.8943 22.1305 18.9781 22.0132 19.0825 21.9159L22.9358 18.0626H9.20829C8.9265 18.0626 8.65625 17.9506 8.45699 17.7514C8.25773 17.5521 8.14579 17.2818 8.14579 17.0001C8.14579 16.7183 8.25773 16.448 8.45699 16.2488C8.65625 16.0495 8.9265 15.9376 9.20829 15.9376L22.9358 15.9376L19.0825 12.0842Z" fill="#A43B3B"/>
-				</svg>
+	<div id="about-us-container" class="flex justify-between w-screen h-auto p-5"> 
+		<div id="about-us-start">
+			<div class="flex m-10"> 
+				<div class="relative flex gap-0 right-5 top-1.5">
+					<div class="relative left-4 top-1"> <CircleIcon width="26" height="26" color="#8c1111" /> </div>
+				
+					<svg class="relative left-0.5 bottom-0.5" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M19.0825 12.0842C18.9781 11.9869 18.8943 11.8696 18.8363 11.7393C18.7782 11.609 18.747 11.4683 18.7445 11.3256C18.7419 11.183 18.7682 11.0413 18.8216 10.909C18.8751 10.7767 18.9546 10.6565 19.0555 10.5556C19.1564 10.4547 19.2766 10.3752 19.4089 10.3217C19.5412 10.2683 19.6829 10.242 19.8255 10.2446C19.9682 10.2471 20.1089 10.2783 20.2392 10.3364C20.3696 10.3944 20.4869 10.4782 20.5841 10.5826L26.2508 16.2492C26.4498 16.4484 26.5615 16.7185 26.5615 17.0001C26.5615 17.2816 26.4498 17.5517 26.2508 17.7509L20.5841 23.4176C20.4869 23.5219 20.3696 23.6057 20.2392 23.6637C20.1089 23.7218 19.9682 23.753 19.8255 23.7556C19.6829 23.7581 19.5412 23.7318 19.4089 23.6784C19.2766 23.625 19.1564 23.5454 19.0555 23.4445C18.9546 23.3436 18.8751 23.2234 18.8216 23.0912C18.7682 22.9588 18.7419 22.8171 18.7445 22.6745C18.747 22.5318 18.7782 22.3911 18.8363 22.2608C18.8943 22.1305 18.9781 22.0132 19.0825 21.9159L22.9358 18.0626H9.20829C8.9265 18.0626 8.65625 17.9506 8.45699 17.7514C8.25773 17.5521 8.14579 17.2818 8.14579 17.0001C8.14579 16.7183 8.25773 16.448 8.45699 16.2488C8.65625 16.0495 8.9265 15.9376 9.20829 15.9376L22.9358 15.9376L19.0825 12.0842Z" fill="#A43B3B"/>
+					</svg>
+				</div>
+				<span class="relative text-2xl text-red-800 font-semibold top-1 right-5"> About Us </span>
+				<ReviewStar />
+				<ReviewStar />
+				<ReviewStar />
+				<ReviewStar />
+				<ReviewStar />
+				<div class="relative bg-white w-[30px] h-[30px] top-1.5 right-5"></div>
 			</div>
-			<span class="relative text-2xl text-red-800 font-semibold top-1 right-5"> About Us </span>
-			<ReviewStar />
-			<ReviewStar />
-			<ReviewStar />
-			<ReviewStar />
-			<ReviewStar />
+			<span class="block text-5xl font-semibold m-10"> Commitment </br> towards excellence </span>
+			<div class="m-10">
+				<Image src={ ManFixingPipe } alt="man fixing pipe" class="block w-[330px] h-[300px] rounded-md my-10" />
+				<div class="relative bg-white text-[#440c0c] text-center rounded-tr-2xl w-[100px] h-[80px] bottom-29 pt-1"> 
+					<span class="text-4xl font-semibold"> 38 </span> 
+					</br> 
+					YEARS 
+				</div>
+			</div>
 		</div>
-		<span class="block text-5xl font-semibold m-10"> Commitment </br> towards excellence </span>
-		<div class="m-10">
-			<Image src={ ManFixingPipe } alt="man fixing pipe" class="block w-[330px] h-[300px] rounded-md my-10" />
-			<div class="relative bg-white text-[#440c0c] text-center rounded-tr-2xl w-[100px] h-[80px] bottom-29 pt-1"> 
-				<span class="text-4xl font-semibold"> 38 </span> 
-				</br> 
-				YEARS 
+		<div id="about-us-end" class="flex flex-col justify-center items-center w-[50%]">
+			<span class="text-red-800 text-4xl italic"> We get the job done. </span>
+			<div>
+				<Image class="rounded-lg mt-10" src={ PlumberTeamRed } alt="team of plumbers wearing red" />
+				<div class="relative bg-white text-[#440c0c] text-center rounded-tr-2xl w-[100px] h-[80px] bottom-20 pt-1">
+					<span class="text-4xl font-semibold"> 45+ </span>
+					</br>
+					REVIEWS
+				</div>
+			</div>
+			<span class="text-[12px] text-center mb-10">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+				sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+				Ut enim ad minim veniam.
+			</span>
+			<div class="grid grid-cols-2 gap-5">
+				<div class="flex"> <CircleIcon width="20" height="20" color="#c52121"/> <Image class="relative right-4.75 bottom-0.75 w-3" src={ CheckMarkIcon } alt="check mark icon" /> <span class="relative text-[#5e1818] text-[12px] font-semibold right-4 bottom-0.75"> Locally owned and operated </span> </div>
+				<div class="flex"> <CircleIcon width="20" height="20" color="#c52121"/> <Image class="relative right-4.75 bottom-0.75 w-3" src={ CheckMarkIcon } alt="check mark icon" /> <span class="relative text-[#5e1818] text-[12px] font-semibold right-4 bottom-0.75"> Always here for you </span> </div>
+				<div class="flex"> <CircleIcon width="20" height="20" color="#c52121"/> <Image class="relative right-4.75 bottom-0.75 w-3" src={ CheckMarkIcon } alt="check mark icon" /> <span class="relative text-[#5e1818] text-[12px] font-semibold right-4 bottom-0.75"> Problem solvers </span> </div>
+				<div class="flex"> <CircleIcon width="20" height="20" color="#c52121"/> <Image class="relative right-4.75 bottom-0.75 w-3" src={ CheckMarkIcon } alt="check mark icon" /> <span class="relative text-[#5e1818] text-[12px] font-semibold right-4 bottom-0.75"> Certified professionals </span> </div>
 			</div>
 		</div>
 	</div>
 	<div id="service-list" class="flex flex-col items-center justify-center bg-[#f7f9fb]">
-		<div class="text-3xl font-semibold text-center w-max h-max"> For anything you might need </div>
+		<div class="text-3xl font-semibold text-center w-max h-max mt-5"> For anything you might need </div>
 		<div class="flex justify-center">
 			<div class="w-[60%] h-[60%] m-10">
 				<Image class="rounded-md" src={ BathTub } alt="bathtub up close" />
 				<div class="relative bottom-25 left-6"> 
 					<div class="relative top-2 z-10"> 
-						<CircleIcon width="25" height="25" />
-						<Image class="absolute w-4 bottom-1 left-1" src={ BathtubIcon } alt="bathtub icon" />
+						<CircleIcon width="25" height="25" color="#c52121"/>
+						<Image class="absolute w-4 bottom-1.5 left-0.5" src={ BathtubIcon } alt="bathtub icon" />
 					</div> 
 					<div class="relative text-[16px] font-semibold bg-white rounded-md w-[75%] h-max p-1"> Bathtub Installation and Repair </div>
 				</div>
@@ -116,8 +140,8 @@ import PipeIcon from '../assets/pipe-icon.svg';
 				<Image class="rounded-md" src={ SinkDrain } alt="drain" />
 				<div class="relative bottom-25 left-6">
 					<div class="relative top-2 z-10"> 
-						<CircleIcon width="25" height="25" />
-						<Image class="absolute w-3 bottom-1 left-1.5" src={ DropletIcon } alt="water droplet icon" /> 
+						<CircleIcon width="25" height="25" color="#c52121"/>
+						<Image class="absolute w-3 bottom-1.5 left-1" src={ DropletIcon } alt="water droplet icon" /> 
 					</div>
 					<div class="relative text-[16px] font-semibold bg-white rounded-md w-[75%] h-max p-1"> Drain Installation and Repair </div>
 				</div>
@@ -126,8 +150,8 @@ import PipeIcon from '../assets/pipe-icon.svg';
 				<Image class="rounded-md" src={ WallPipe } alt="wall pipes" />
 				<div class="relative bottom-25 left-6">
 					<div class="relative top-2 z-10"> 
-						<CircleIcon width="25" height="25" /> 
-						<Image class="absolute w-3 bottom-1.5 left-1.5" src={ PipeIcon } alt="pipe icon" />
+						<CircleIcon width="25" height="25" color="#c52121"/> 
+						<Image class="absolute w-3 bottom-2 left-1" src={ PipeIcon } alt="pipe icon" />
 					</div>
 					<div class="relative text-[16px] text-center font-semibold bg-white rounded-md w-[75%] h-max p-4"> Plumbing Inspection </div>
 				</div>
