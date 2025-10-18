@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
 import FooterBackdrop from '../components/FooterBackdrop.astro';
+import CompanyHeader from '../components/CompanyHeader.astro';
+import Navigation from '../components/Navigation.astro';
 ---
 
 
@@ -13,6 +15,10 @@ import FooterBackdrop from '../components/FooterBackdrop.astro';
 		<title>Big Branch Plumbing</title>
 	</head>
 	<body>
+		<div class="flex justify-between">
+			<CompanyHeader />
+			<Navigation />
+		</div>
         <slot />
 		<FooterBackdrop />
 	</body>
