@@ -1,10 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Image from 'astro/components/Image.astro';
 import CircleIcon from '../components/CircleIcon.astro';
-import Faucet from '../assets/faucet.png';
 import CopperPipe from '../assets/copper-pipe.png';
-import CalendarIcon from '../assets/calendar-icon.svg';
+import LatestBlog from '../components/LatestBlog.astro';
+import Faucet from '../assets/faucet.png';
+import Blog from '../components/Blog.astro';
+import FixingFaucet from '../assets/fixing-faucet.jpg';
+import ManGettingSplashed from '../assets/man-getting-splashed.jpg';
 ---
 
 <Layout>
@@ -16,32 +18,36 @@ import CalendarIcon from '../assets/calendar-icon.svg';
         <div class="flex mt-5"> <div class="relative top-1.5 left-1"> <CircleIcon width="20" height="20" color="#c52121" /> </div> Latest Blogs </div>
         <div id="latest-blogs" class="grid grid-cols-2 gap-10">
             <div>
-                <div class="relative text-center bg-[#c52121] rounded-lg top-25 left-5 w-max h-max">
-                     <span class="text-2xl"> 13 </span> 
-                     <br> 
-                     <span class="text-[12px]"> May </span>
-                     <div class="relative bg-white text-[12px] text-center rounded-bl-lg rounded-br-lg w-full px-2 py-0.5"> 2025 </div> 
-                </div> 
-                <Image class="rounded-lg h-[300px]" src={ Faucet } alt="water faucet" />
-                <div class="relative flex flex-col bg-[#8c1111] rounded-lg w-max h-max p-5">
-                    <div class="absolute"> <Image src={ CalendarIcon } alt="calendar icon" /> </div>
-                    <div class="text-white text-[12px]"> 13 May 2025 | Plumbing Services </div>
-                    <div class="text-white font-semibold"> 10 Common Plumbing Problems and How to Spot Them Early </div>
-                    <div class=""> <button class="bg-[#c52121] rounded-[28px] p-2"> Read More </button> </div>
-                </div>
+                <LatestBlog backgroundImage={ Faucet } />
             </div>
             <div>
-                <Image class="rounded-lg h-[300px]" src={ CopperPipe } alt="copper pipe" />
+                <LatestBlog backgroundImage={ CopperPipe } />
             </div>
         </div>
-        <div id="blog-sorter" class="flex flex-col m-3">
+        <div id="blog-sorter" class="relative flex flex-col left-[10vw] bottom-12.5 m-3">
             <div class="text-[12px] text-[#1f2022]/80 font-semibold"> All Blogs </div>
             <div class="font-semibold max-w-[14pc] my-1 leading-5"> Your Go-To Resource for All Things Plumbing </div>
             <div class="flex justify-around items-center w-60 mt-1 ml-3">
                 <div class="opacity-50 text-[12px]"> Sort by </div>
-                <button id="most-recent" class="text-white text-[12px] bg-[#8c1111] rounded-[28px] px-3 py-1 cursor-pointer"> Most Recent </button>
-                <button id="most-viewed" class="text-[#363941]/50 text-[12px] bg-white border-[1px] border-[#363941]/50 rounded-[28px] px-3 py-1 cursor-pointer"> Most Viewed </button>
+                <button id="most-recent" type="button" class="text-white text-[12px] bg-[#8c1111] rounded-[28px] px-3 py-1 cursor-pointer"> Most Recent </button>
+                <button id="most-viewed" type="button" class="text-[#363941]/50 text-[12px] bg-white border-[1px] border-[#363941]/50 rounded-[28px] px-3 py-1 cursor-pointer"> Most Viewed </button>
             </div>
         </div>
+        <div id="sorted-blogs" class="grid grid-cols-2 gap-y-10 justify-center w-screen">
+            <Blog backgroundImage={ FixingFaucet } />
+            <Blog backgroundImage={ ManGettingSplashed } />
+            <Blog backgroundImage={ FixingFaucet } />
+            <Blog backgroundImage={ ManGettingSplashed } />
+        </div>
     </div>
+    <script>
+        document.addEventListener('click', e => {
+            const targetElement = e.target as HTMLElement;
+            if (targetElement.id === 'most-recent' || targetElement.id === 'most-viewed') {
+                const otherElement = document.getElementById(targetElement.id === 'most-recent' ? 'most-viewed' : 'most-recent') as HTMLElement;
+                targetElement.className = 'text-white text-[12px] bg-[#8c1111] rounded-[28px] px-3 py-1 cursor-pointer';
+                otherElement.className = 'text-[#363941]/50 text-[12px] bg-white border-[1px] border-[#363941]/50 rounded-[28px] px-3 py-1 cursor-pointer'
+            }
+        });
+    </script>
 </Layout>  

@@ -1,0 +1,22 @@
+---
+import Image from "astro/components/Image.astro";
+import CalendarIcon from '../assets/calendar-icon.svg';
+
+const { backgroundImage } = Astro.props;
+---
+
+
+
+<div class="relative text-center bg-[#c52121] rounded-lg top-25 left-5 w-max h-max">
+    <span class="text-2xl"> 13 </span> 
+    <br> 
+    <span class="text-[12px]"> May </span>
+    <div class="relative bg-white text-[12px] text-center rounded-bl-lg rounded-br-lg w-full px-2 py-0.5"> 2025 </div> 
+</div> 
+<Image class="rounded-lg h-[300px]" src={ backgroundImage } alt={ backgroundImage.src } />
+<div class="relative flex flex-col bg-[#8c1111] rounded-lg w-max p-5 left-10 bottom-25 shadow-md shadow-black">
+    <div class="absolute"> <Image src={ CalendarIcon } alt="calendar icon" /> </div>
+    <div class="relative text-white text-[12px] my-2 left-20"> 13 May 2025 | Plumbing Services </div>
+    <div class="relative text-white font-semibold max-w-[20pc] my-2 left-2"> 10 Common Plumbing Problems and How to Spot Them Early </div>
+    <div class="my-2"> <button class="bg-[#c52121] rounded-[28px] px-5 py-2"> Read More </button> </div>
+</div>
