@@ -3,13 +3,13 @@ import '../styles/global.css';
 import Image from 'astro/components/Image.astro';
 import RightArrow from '../assets/arrow-right-bold.svg';
 
-const { backgroundImage } = Astro.props;
+const { backgroundImage, title } = Astro.props;
 ---
 
 <div class="max-w-[90%] cursor-pointer"> 
     <Image class="rounded-tr-md rounded-bl-md w-full h-full" src={ backgroundImage } alt={ backgroundImage.src } />
     <div class="relative flex justify-between items-center text-white text-[12px] font-semibold bg-[#8c1111] rounded-bl-md w-full h-max bottom-9"> 
-        <span class="text-center px-5"> What to do when you notice a leak </span> 
+        <span class="text-center px-5"> { title } </span> 
         <div class="bg-[#c52121] w-max h-full p-3">
             <Image class="w-8 h-3" src={ RightArrow } alt="arrow pointing right" />
         </div>

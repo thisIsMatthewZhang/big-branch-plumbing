@@ -1,0 +1,14 @@
+---
+import Image from "astro/components/Image.astro";
+import Layout from "./Layout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Layout>
+    <h1> { frontmatter.title } </h1>
+    <p> Published on: { frontmatter.pubDate.toString().slice(0, 10) } </p>
+    <p> Written by {frontmatter.author} </p>
+    <!-- <Image src={ frontmatter.image.src } alt={ frontmatter.image.alt } /> -->
+
+    <slot />
+</Layout>

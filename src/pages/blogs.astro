@@ -7,6 +7,13 @@ import Faucet from '../assets/faucet.png';
 import Blog from '../components/Blog.astro';
 import FixingFaucet from '../assets/fixing-faucet.jpg';
 import ManGettingSplashed from '../assets/man-getting-splashed.jpg';
+
+const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
+const mostRecentPosts = allPosts.sort((a: any, b: any) => {
+        const dateOne: any = new Date(a.frontmatter.pubDate)
+        const dateTwo: any = new Date(b.frontmatter.pubDate); 
+        return dateTwo - dateOne;
+}).slice(0, 2);
 ---
 
 <Layout>
@@ -17,6 +24,7 @@ import ManGettingSplashed from '../assets/man-getting-splashed.jpg';
         </div>
         <div class="flex mt-5"> <div class="relative top-1.5 left-1"> <CircleIcon width="20" height="20" color="#c52121" /> </div> Latest Blogs </div>
         <div id="latest-blogs" class="grid grid-cols-2 gap-10">
+            <!-- { mostRecentPosts.map((post: any) => <div> <LatestBlog backgroundImage={ Faucet } blogTitle={ post.frontmatter.title } blogDate={ post.frontmatter.pubDate } /> </div>) } -->
             <div>
                 <LatestBlog backgroundImage={ Faucet } />
             </div>
@@ -34,10 +42,10 @@ import ManGettingSplashed from '../assets/man-getting-splashed.jpg';
             </div>
         </div>
         <div id="sorted-blogs" class="grid grid-cols-2 gap-y-10 justify-center w-screen">
-            <Blog backgroundImage={ FixingFaucet } />
-            <Blog backgroundImage={ ManGettingSplashed } />
-            <Blog backgroundImage={ FixingFaucet } />
-            <Blog backgroundImage={ ManGettingSplashed } />
+            <Blog backgroundImage={ FixingFaucet } title="What to do when you notice a leak" />
+            <Blog backgroundImage={ ManGettingSplashed } title="Tips every homeowner should know" />
+            <Blog backgroundImage={ FixingFaucet } title="What to do when you notice a leak" />
+            <Blog backgroundImage={ ManGettingSplashed } title="Tips every homeowner should know" />
         </div>
     </div>
     <script>
@@ -45,8 +53,8 @@ import ManGettingSplashed from '../assets/man-getting-splashed.jpg';
             const targetElement = e.target as HTMLElement;
             if (targetElement.id === 'most-recent' || targetElement.id === 'most-viewed') {
                 const otherElement = document.getElementById(targetElement.id === 'most-recent' ? 'most-viewed' : 'most-recent') as HTMLElement;
-                targetElement.className = 'text-white text-[12px] bg-[#8c1111] rounded-[28px] px-3 py-1 cursor-pointer';
-                otherElement.className = 'text-[#363941]/50 text-[12px] bg-white border-[1px] border-[#363941]/50 rounded-[28px] px-3 py-1 cursor-pointer'
+                targetElement.className = 'text-white text-[12px] bg-[#8c1111] rounded-[28px] px-3 py-1 cursor-pointer transition-all';
+                otherElement.className = 'text-[#363941]/50 text-[12px] bg-white border-[1px] border-[#363941]/50 rounded-[28px] px-3 py-1 cursor-pointer transition-all'
             }
         });
     </script>

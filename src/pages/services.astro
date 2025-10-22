@@ -71,8 +71,8 @@ import DrainPipes from '../assets/drain-pipe.png';
         const targetElement = e.target as HTMLElement;
         if (targetElement.id === 'all-services' || targetElement.id === 'common-services') {
             const otherElement = document.getElementById(targetElement.id === 'all-services' ? 'common-services' : 'all-services') as HTMLElement;
-            targetElement.className = 'bg-red-800 text-white rounded-4xl px-8 py-2 cursor-pointer';
-            otherElement.className = 'bg-white text-gray-400 rounded-4xl border-[1px] border-[gray] p-2 cursor-pointer';
+            targetElement.className = 'bg-red-800 text-white rounded-4xl px-8 py-2 cursor-pointer transition-all';
+            otherElement.className = 'bg-white text-gray-400 rounded-4xl border-[1px] border-[gray] p-2 cursor-pointer transition-all';
         }
     });
     </script>
