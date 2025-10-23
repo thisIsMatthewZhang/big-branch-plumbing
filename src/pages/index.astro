@@ -17,6 +17,7 @@ import CheckMarkIcon from '../assets/check-mark-icon.svg';
 import LatestBlog from '../components/LatestBlog.astro';
 import Faucet from '../assets/faucet.png';
 import CopperPipe from '../assets/copper-pipe.png';
+import TruckCircles from '../assets/truck-circles.webp';
 
 
 const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
@@ -47,11 +48,7 @@ const mostRecentPosts = allPosts.sort((a: any, b: any) => {
 					</div>
 				</button>
 			</div>
-			<Image class="relative right-30 w-[50%] h-[50%] z-20" src={ BigTruck } alt="big truck" />
-			<!-- <div class="relative w-max h-max right-10">
-				<Image class="relative w-75 right-15" src={ EllipseRed } alt="Red circle" />
-				<Image class="relative w-75 right-10 bottom-75" src={ EllipseMaroon } alt="Maroon circle" />
-			</div> -->
+			<Image class="relative right-45 w-[50%] h-[50%] z-20" src={ TruckCircles } alt="big truck with two circles behind it" />
 		</div>
 		<div class="relative flex items-center justify-between justify-self-center w-[90%] h-auto bg-[#fbbfbf] border-[3px] border-[#de3a3a] rounded-[36px] shadow-sm shadow-black px-10 py-3 my-15">
 			<div class="flex flex-col text-2xl items-center">
