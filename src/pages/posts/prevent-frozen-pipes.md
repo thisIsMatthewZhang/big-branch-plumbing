@@ -4,6 +4,8 @@ title: '5 Easy Steps to Prevent Frozen Pipes'
 pubDate: 2025-21-13
 description: 'This blog discusses 5 tips on how to prevent frozen pipes'
 author: ''
+image: '../../assets/frozen-pipes.jpg'
+url: '../posts/prevent-frozen-pipes/'
 tags: []
 ---
 ![Frozen Pipes](../../assets/frozen-pipes.jpg)

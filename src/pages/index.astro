@@ -17,8 +17,14 @@ import CheckMarkIcon from '../assets/check-mark-icon.svg';
 import LatestBlog from '../components/LatestBlog.astro';
 import Faucet from '../assets/faucet.png';
 import CopperPipe from '../assets/copper-pipe.png';
-import EllipseRed from '../assets/ellipse-red.png';
-import EllipseMaroon from '../assets/ellipse-maroon.png';
+
+
+const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
+const mostRecentPosts = allPosts.sort((a: any, b: any) => {
+        const dateOne: any = new Date(a.frontmatter.pubDate)
+        const dateTwo: any = new Date(b.frontmatter.pubDate); 
+        return dateTwo - dateOne;
+}).slice(0, 2);
 ---
 
 <Layout>
@@ -176,12 +182,7 @@ import EllipseMaroon from '../assets/ellipse-maroon.png';
 			Explore our latest blog
 		</div>
 		<div class="grid grid-cols-2 gap-10"> 
-			<div>
-				<LatestBlog backgroundImage={ Faucet } />
-			</div>
-			<div>
-				<LatestBlog backgroundImage={ CopperPipe } />
-			</div>
+			{ mostRecentPosts.map((post: any) => <div> <LatestBlog backgroundImage={ Faucet } blogTitle={ post.frontmatter.title } blogDate={ post.frontmatter.pubDate } blogUrl={ post.frontmatter.url } /> </div>) }
 		</div>
 		<div class="relative justify-self-center bottom-10"> 
 			<a href="/blogs/"> <button class="bg-[#c52121] rounded-[28px] px-5 py-2 cursor-pointer"> See All Tips </button> </a> 

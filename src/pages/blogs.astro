@@ -24,13 +24,7 @@ const mostRecentPosts = allPosts.sort((a: any, b: any) => {
         </div>
         <div class="flex mt-5"> <div class="relative top-1.5 left-1"> <CircleIcon width="20" height="20" color="#c52121" /> </div> Latest Blogs </div>
         <div id="latest-blogs" class="grid grid-cols-2 gap-10">
-            <!-- { mostRecentPosts.map((post: any) => <div> <LatestBlog backgroundImage={ Faucet } blogTitle={ post.frontmatter.title } blogDate={ post.frontmatter.pubDate } /> </div>) } -->
-            <div>
-                <LatestBlog backgroundImage={ Faucet } />
-            </div>
-            <div>
-                <LatestBlog backgroundImage={ CopperPipe } />
-            </div>
+            { mostRecentPosts.map((post: any) => <div> <LatestBlog backgroundImage={ Faucet } blogTitle={ post.frontmatter.title } blogDate={ post.frontmatter.pubDate } blogUrl={ post.frontmatter.url } /> </div>) }
         </div>
         <div id="blog-sorter" class="relative flex flex-col left-[10vw] bottom-12.5 m-3">
             <div class="text-[12px] text-[#1f2022]/80 font-semibold"> All Blogs </div>
