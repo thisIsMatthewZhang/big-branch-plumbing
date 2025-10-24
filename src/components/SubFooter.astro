@@ -1,10 +1,8 @@
 ---
 import '../styles/global.css';
-import Image from 'astro/components/Image.astro';
-import MapLocation from '../assets/map-location.png';
 ---
 
-<div id="subfooter-container" class="bg-white rounded-md w-auto h-auto">
+<div id="subfooter-container" class="bg-white rounded-md w-[125%] h-auto py-2 px-4">
     <span class="font-normal font-[Libre_Franklin] m-4"> Big Branch </br> <span class="font-bold font-[Libre_Franklin] m-4"> Plumbing </span> </span>
     <div class="grid grid-cols-4 gap-0 mx-8">
         <div class="flex flex-col h-6/12 w-max"> 
@@ -42,7 +40,7 @@ import MapLocation from '../assets/map-location.png';
                         <path d="M18 17.25C17.0054 17.25 16.0516 16.8549 15.3483 16.1517C14.6451 15.4484 14.25 14.4946 14.25 13.5C14.25 12.5054 14.6451 11.5516 15.3483 10.8483C16.0516 10.1451 17.0054 9.75 18 9.75C18.9946 9.75 19.9484 10.1451 20.6517 10.8483C21.3549 11.5516 21.75 12.5054 21.75 13.5C21.75 13.9925 21.653 14.4801 21.4645 14.9351C21.2761 15.39 20.9999 15.8034 20.6517 16.1517C20.3034 16.4999 19.89 16.7761 19.4351 16.9645C18.9801 17.153 18.4925 17.25 18 17.25ZM18 3C15.2152 3 12.5445 4.10625 10.5754 6.07538C8.60625 8.04451 7.5 10.7152 7.5 13.5C7.5 21.375 18 33 18 33C18 33 28.5 21.375 28.5 13.5C28.5 10.7152 27.3938 8.04451 25.4246 6.07538C23.4555 4.10625 20.7848 3 18 3Z" fill="#1F2022"/>
                     </svg>
                 </div>
-                21357 Marlong Ln, </br> Mandeville, LA 70471
+                21357 Marion Ln, </br> Mandeville, LA 70471
             </span>
         </div>
         <div class="flex flex-col w-max">
@@ -51,6 +49,13 @@ import MapLocation from '../assets/map-location.png';
             <span class="font-bold text-[75%]"> Thu-Fri <span class="font-normal"> 11:00 am - 5:00 </br> pm </span> </span>
         </div>
     </div>
-    <Image class="justify-self-end w-[25%] h-[50%] m-2" src= { MapLocation } alt="location on map"></Image>
+    <!-- <Image class="justify-self-end w-[25%] h-[50%] m-2" src= { MapLocation } alt="location on map"></Image> -->
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13761.458514607746!2d-90.06612674776471!3d30.425763808150457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x862759303e3a934d%3A0xfde369a68e79ac12!2s21357%20Marion%20Ln%2C%20Mandeville%2C%20LA%2070471!5e0!3m2!1sen!2sus!4v1761327325767!5m2!1sen!2sus" 
+     class="justify-self-end w-[40%] m-2"
+     title="Map location for 21357 Marion Lane"
+     allowfullscreen="" 
+     loading="lazy" 
+     referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
     <footer class="text-[12px] ml-1"> Site by <span class="underline"> ByrdLabs </span>. 2025 All rights reserved. </footer>
 </div>
