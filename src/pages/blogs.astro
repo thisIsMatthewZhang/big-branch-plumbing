@@ -19,20 +19,20 @@ const mostRecentPosts = allPosts.sort((a: any, b: any) => {
 <Layout>
     <div id="blog-page-container" class="p-5">
         <div id="blog-top" class="flex flex-col max-w-[25pc]">
-            <span class="text-2xl font-semibold"> Plumbing Tips, Tricks, and Expert Advice All in One Place. </span>
-            <span class="text-[12px]"> Stay informed with professional insights, DIY guides, and the latest plumbing solutions for your home or business.</span>
+            <span class="text-2xl font-semibold font-[Inter]"> Plumbing Tips, Tricks, and Expert Advice All in One Place. </span>
+            <span class="text-[12px] font-[Golos_Text]"> Stay informed with professional insights, DIY guides, and the latest plumbing solutions for your home or business.</span>
         </div>
-        <div class="flex mt-5"> <div class="relative top-1.5 left-1"> <CircleIcon width="20" height="20" color="#c52121" /> </div> Latest Blogs </div>
+        <div class="flex mt-5"> <div class="relative font-[Golos_Text] top-1.5 left-1"> <CircleIcon width="20" height="20" color="#c52121" /> </div> Latest Blogs </div>
         <div id="latest-blogs" class="grid grid-cols-2 gap-10">
-            { mostRecentPosts.map((post: any) => <div> <LatestBlog backgroundImage={ post.frontmatter.cover } blogTitle={ post.frontmatter.title } blogDate={ post.frontmatter.pubDate } blogUrl={ post.url } /> </div>) }
+            <!-- { mostRecentPosts.map((post: any) => <div> <LatestBlog backgroundImage={ post.frontmatter.cover } blogTitle={ post.frontmatter.title } blogDate={ post.frontmatter.pubDate } blogUrl={ post.url } /> </div>) } -->
         </div>
         <div id="blog-sorter" class="relative flex flex-col left-[10vw] bottom-12.5 m-3">
-            <div class="text-[12px] text-[#1f2022]/80 font-semibold"> All Blogs </div>
-            <div class="font-semibold max-w-[14pc] my-1 leading-5"> Your Go-To Resource for All Things Plumbing </div>
+            <div class="text-[12px] text-[#1f2022]/80 font-semibold font-[Golos_Text]"> All Blogs </div>
+            <div class="font-semibold font-[Golos_Text] max-w-[14pc] my-1 leading-5"> Your Go-To Resource for All Things Plumbing </div>
             <div class="flex justify-around items-center w-60 mt-1 ml-3">
-                <div class="opacity-50 text-[12px]"> Sort by </div>
-                <button id="most-recent" type="button" class="text-white text-[12px] bg-[#8c1111] rounded-[28px] px-3 py-1 cursor-pointer"> Most Recent </button>
-                <button id="most-viewed" type="button" class="text-[#363941]/50 text-[12px] bg-white border-[1px] border-[#363941]/50 rounded-[28px] px-3 py-1 cursor-pointer"> Most Viewed </button>
+                <div class="opacity-50 text-[12px] font-[Golos_Text]"> Sort by </div>
+                <button id="most-recent" type="button" class="text-white text-[12px] bg-[#8c1111] rounded-[28px] font-[Golos_Text] px-3 py-1 cursor-pointer"> Most Recent </button>
+                <button id="most-viewed" type="button" class="text-[#363941]/50 text-[12px] bg-white border-[1px] font-[Golos_Text] border-[#363941]/50 rounded-[28px] px-3 py-1 cursor-pointer"> Most Viewed </button>
             </div>
         </div>
         <div id="sorted-blogs" class="grid grid-cols-2 gap-y-10 justify-center w-screen">
@@ -47,8 +47,8 @@ const mostRecentPosts = allPosts.sort((a: any, b: any) => {
             const targetElement = e.target as HTMLElement;
             if (targetElement.id === 'most-recent' || targetElement.id === 'most-viewed') {
                 const otherElement = document.getElementById(targetElement.id === 'most-recent' ? 'most-viewed' : 'most-recent') as HTMLElement;
-                targetElement.className = 'text-white text-[12px] bg-[#8c1111] rounded-[28px] px-3 py-1 cursor-pointer transition-all';
-                otherElement.className = 'text-[#363941]/50 text-[12px] bg-white border-[1px] border-[#363941]/50 rounded-[28px] px-3 py-1 cursor-pointer transition-all'
+                targetElement.className = 'text-white text-[12px] bg-[#8c1111] rounded-[28px] font-[Golos_Text] px-3 py-1 cursor-pointer transition-all';
+                otherElement.className = 'text-[#363941]/50 text-[12px] bg-white border-[1px] border-[#363941]/50 rounded-[28px] font-[Golos_Text] px-3 py-1 cursor-pointer transition-all';
             }
         });
     </script>

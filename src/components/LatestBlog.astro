@@ -12,17 +12,17 @@ const { backgroundImage, blogTitle, blogDate, blogUrl } = Astro.props;
 <div class="flex flex-col justify-center items-center rounded-lg">
     <div> 
         <div class="relative text-center bg-[#c52121] rounded-lg top-25 left-5 w-max h-max">
-            <span class="text-2xl"> 13 </span> 
+            <span class="text-2xl font-normal font-[MuseoModerno]"> 13 </span> 
             <br> 
-            <span class="text-[12px]"> May </span>
-            <div class="relative bg-white text-[12px] text-center rounded-bl-lg rounded-br-lg w-full px-2 py-0.5"> 2025 </div> 
+            <span class="text-[12px] font-normal font-[Golos_Text]"> May </span>
+            <div class="relative bg-white text-[12px] text-center font-normal font-[Golos_Text] rounded-bl-lg rounded-br-lg w-full px-2 py-0.5"> 2025 </div> 
         </div> 
         <Image class="rounded-lg " src={ backgroundImage } alt={ backgroundImage.src } />
     </div>
     <div class="relative bg-[#8c1111] px-10 py-5 w-max h-max rounded-lg bottom-15">
         <div class="absolute"> <Image src={ CalendarIcon } alt="calendar icon" /></div>
-        <div class="relative text-white text-[12px] my-2 left-20"> 13 May 2025 | Plumbing Services </div>
-        <div class="relative text-white font-semibold max-w-[20pc] my-5 left-2"> { blogTitle } </div>
-        <div class="my-2"> <a href=`${ blogUrl }`> <button class="bg-[#c52121] rounded-[28px] px-5 py-2 cursor-pointer"> Read More </button> </a> </div>
+        <div class="relative text-white text-[12px] font-normal font-[Golos_Text] my-2 left-20"> 13 May 2025 | Plumbing Services </div>
+        <div class="relative text-white font-semibold font-[Libre_Franklin] max-w-[20pc] my-5 left-2"> { blogTitle } </div>
+        <div class="my-2"> <a href=`${ blogUrl }`> <button class="bg-[#c52121] rounded-[28px] font-medium font-[Libre_Franklin] px-5 py-2 cursor-pointer"> Read More </button> </a> </div>
     </div>
 </div>

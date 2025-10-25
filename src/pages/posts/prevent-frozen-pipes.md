@@ -5,7 +5,8 @@ pubDate: 2025-21-13
 description: 'This blog discusses 5 tips on how to prevent frozen pipes'
 author: ''
 image: '../../assets/frozen-pipes.jpg'
-tags: []
+cover: ''
+coverAlt: 'Pipes frozen over'
 ---
 ![Frozen Pipes](../../assets/frozen-pipes.jpg)
 

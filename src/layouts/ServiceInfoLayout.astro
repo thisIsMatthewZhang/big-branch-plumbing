@@ -1,18 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Image from 'astro/components/Image.astro';
-import { getCollection } from 'astro:content';
 
 const { frontmatter } = Astro.props;
  
 ---
 
 <Layout>
-    <div id="page-container" class="flex justify-center items-center m-5">
+    <div id="page-container" class="flex justify-evenly items-center m-5">
         <div class="flex flex-col my-2">
-            <span> { frontmatter.title } </span>
-            <Image src={ frontmatter.image } alt=""/>
+            <span class="font-bold"> { frontmatter.title } </span>
+            <!-- <Image src={ frontmatter.image.url } alt={frontmatter.image.alt} /> -->
         </div>
-        <slot />
+        <div class="flex flex-col text-[12px] max-w-[50ch]"> <slot /> </div>
     </div>
 </Layout>
