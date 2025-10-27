@@ -3,12 +3,11 @@ layout: ../../layouts/BlogPostLayout.astro
 title: '5 Easy Steps to Prevent Frozen Pipes'
 pubDate: 2025-21-13
 description: 'This blog discusses 5 tips on how to prevent frozen pipes'
-author: ''
-image: '../../assets/frozen-pipes.jpg'
-cover: ''
+author: 'Matthew Zhang'
+cover: './frozen-pipes.jpg'
 coverAlt: 'Pipes frozen over'
 ---
-![Frozen Pipes](../../assets/frozen-pipes.jpg)
+![Frozen Pipes](./frozen-pipes.jpg)
 
 Winter can be tough on your home's plumbing, and frozen pipes are one of the most common and costly problems homeowners face during cold snaps. When water freezes inside your pipes, it expands and can cause them to burst, leading to expensive repairs and significant water damage. The good news? Preventing frozen pipes is easier than you might think.
 

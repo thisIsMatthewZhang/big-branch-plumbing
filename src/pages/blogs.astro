@@ -6,14 +6,17 @@ import LatestBlog from '../components/LatestBlog.astro';
 import Faucet from '../assets/faucet.png';
 import Blog from '../components/Blog.astro';
 import FixingFaucet from '../assets/fixing-faucet.jpg';
-import ManGettingSplashed from '../assets/man-getting-splashed.jpg';
+import ManGettingSplashed from '../content/blogs/man-getting-splashed.jpg';
+import { getCollection } from 'astro:content';
 
-const allPosts = Object.values(import.meta.glob('../pages/posts/*.md', { eager: true }));
-const mostRecentPosts = allPosts.sort((a: any, b: any) => {
-        const dateOne: any = new Date(a.frontmatter.pubDate)
-        const dateTwo: any = new Date(b.frontmatter.pubDate); 
+const allBlogPosts = await getCollection('blogs');
+const mostRecentPosts = allBlogPosts.sort((a: any, b: any) => {
+        const dateOne: any = new Date(a.data.pubDate);
+        const dateTwo: any = new Date(b.data.pubDate); 
         return dateTwo - dateOne;
 }).slice(0, 2);
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
 ---
 
 <Layout>
@@ -23,8 +26,17 @@ const mostRecentPosts = allPosts.sort((a: any, b: any) => {
             <span class="text-[12px] font-[Golos_Text]"> Stay informed with professional insights, DIY guides, and the latest plumbing solutions for your home or business.</span>
         </div>
         <div class="flex mt-5"> <div class="relative font-[Golos_Text] top-1.5 left-1"> <CircleIcon width="20" height="20" color="#c52121" /> </div> Latest Blogs </div>
-        <div id="latest-blogs" class="grid grid-cols-2 gap-10">
-            <!-- { mostRecentPosts.map((post: any) => <div> <LatestBlog backgroundImage={ post.frontmatter.cover } blogTitle={ post.frontmatter.title } blogDate={ post.frontmatter.pubDate } blogUrl={ post.url } /> </div>) } -->
+        <div id="latest-blogs" class="grid grid-cols-2 gap-10">  
+           { mostRecentPosts.map((post: any) => <LatestBlog blogCover={ post.data.cover } 
+                                                            blogCoverAlt={ post.data.coverAlt } 
+                                                            blogTitle={ post.data.title } 
+                                                            blogDate={ post.data.pubDate.toDateString() } 
+                                                            blogDay={ post.data.pubDate.getDate() } 
+                                                            blogMonth={ months[post.data.pubDate.getMonth()] } 
+                                                            blogYear={ post.data.pubDate.getFullYear() }
+                                                            blogUrl={ post.slug } />) 
+           }
+                
         </div>
         <div id="blog-sorter" class="relative flex flex-col left-[10vw] bottom-12.5 m-3">
             <div class="text-[12px] text-[#1f2022]/80 font-semibold font-[Golos_Text]"> All Blogs </div>

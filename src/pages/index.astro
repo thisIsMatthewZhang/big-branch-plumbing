@@ -33,21 +33,23 @@ const mostRecentPosts = allPosts.sort((a: any, b: any) => {
 		<div class="flex justify-evenly"> 
 			<div>
 				<div class="w-[600px] text-[#25272d] text-5xl font-semibold font-[Golos_Text] leading-[50px] ml-10 mt-10"> Licensed, Reliable Plumbing on the Northshore </div>
-				<button type="button" id="book-now" class="flex items-center justify-center rounded-4xl bg-red-800 w-[160px] h-[50px] shadow-sm shadow-black py-1 ml-10 mt-10 cursor-pointer">
-					<div data-svg-wrapper class="self-end">
-						<svg width="24" height="16" viewBox="0 0 71 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M70 34C68.3736 34 55.8796 34 37.4057 33.9045C24.052 33.8354 16.6236 28.9863 12.6561 26.2016C4.38279 20.3947 2.93857 12.8221 1.6859 7.95895C1.55036 7.18316 1.27929 6.41895 1.13965 5.26105C1.00001 4.10316 1 2.57474 1 1" stroke="#F2F2F2" stroke-width="4" stroke-linecap="round"/>
-						</svg>
-					</div>
-					<span class="text-white font-normal font-[Golos_Text] text-[20px]"> Book Now </span>
-					<div data-svg-wrapper class="self-start">
-						<svg width="24" height="16" viewBox="0 0 56 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M1.52075 1.88251C2.76658 1.88251 12.3368 1.88251 26.4876 1.98633C36.7164 2.06137 42.4065 7.33143 45.4456 10.3579C51.7828 16.6689 52.8891 24.8988 53.8486 30.1842C53.9525 31.0273 54.1601 31.8579 54.2671 33.1163C54.374 34.3747 54.374 36.0358 54.374 37.7472" stroke="#F2F2F2" stroke-width="4" stroke-linecap="round"/>
-						</svg>
-					</div>
-				</button>
+				<a href="/contact/"> 
+					<button type="button" id="book-now" class="flex items-center justify-center rounded-4xl bg-red-800 w-[160px] h-[50px] shadow-sm shadow-black py-1 ml-10 mt-10 cursor-pointer">
+						<div data-svg-wrapper class="self-end">
+							<svg width="24" height="16" viewBox="0 0 71 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M70 34C68.3736 34 55.8796 34 37.4057 33.9045C24.052 33.8354 16.6236 28.9863 12.6561 26.2016C4.38279 20.3947 2.93857 12.8221 1.6859 7.95895C1.55036 7.18316 1.27929 6.41895 1.13965 5.26105C1.00001 4.10316 1 2.57474 1 1" stroke="#F2F2F2" stroke-width="4" stroke-linecap="round"/>
+							</svg>
+						</div>
+						<span class="text-white font-normal font-[Golos_Text] text-[20px]"> Book Now </span>
+						<div data-svg-wrapper class="self-start">
+							<svg width="24" height="16" viewBox="0 0 56 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M1.52075 1.88251C2.76658 1.88251 12.3368 1.88251 26.4876 1.98633C36.7164 2.06137 42.4065 7.33143 45.4456 10.3579C51.7828 16.6689 52.8891 24.8988 53.8486 30.1842C53.9525 31.0273 54.1601 31.8579 54.2671 33.1163C54.374 34.3747 54.374 36.0358 54.374 37.7472" stroke="#F2F2F2" stroke-width="4" stroke-linecap="round"/>
+							</svg>
+						</div>
+					</button>
+				</a>
 			</div>
-			<Image class="relative right-45 w-[50%] h-[50%] z-20" src={ TruckCircles } alt="big truck with two circles behind it" />
+			<Image loading={'eager'} class="relative right-45 w-[50%] h-[50%] z-20" src={ TruckCircles } alt="big truck with two circles behind it" />
 		</div>
 		<div class="relative flex items-center justify-between justify-self-center w-[90%] h-auto bg-[#fbbfbf] border-[3px] border-[#de3a3a] rounded-[36px] shadow-sm shadow-black px-10 py-3 my-15">
 			<div class="flex flex-col text-2xl font-[Golos_Text] items-center">
@@ -133,32 +135,32 @@ const mostRecentPosts = allPosts.sort((a: any, b: any) => {
 		<div class="flex justify-center">
 			<div class="w-[60%] h-[60%] m-10">
 				<Image class="rounded-md" src={ BathTub } alt="bathtub up close" />
-				<div class="relative bottom-25 left-6"> 
+				<div class="relative bottom-21 left-6"> 
 					<div class="relative top-2 z-10"> 
 						<CircleIcon width="25" height="25" color="#c52121"/>
 						<Image class="absolute w-4 bottom-1.5 left-0.5" src={ BathtubIcon } alt="bathtub icon" />
 					</div> 
-					<div class="relative text-[16px] font-semibold font-[Libre_Franklin] bg-white rounded-md w-[75%] h-max p-1"> Bathtub Installation and Repair </div>
+					<div class="relative text-[12px] font-semibold font-[Libre_Franklin] bg-white rounded-md w-[75%] h-max p-2"> Bathtub Installation and Repair </div>
 				</div>
 			</div>
 			<div class="w-[60%] h-[60%] m-10">
 				<Image class="rounded-md" src={ SinkDrain } alt="drain" />
-				<div class="relative bottom-25 left-6">
+				<div class="relative bottom-21 left-6">
 					<div class="relative top-2 z-10"> 
 						<CircleIcon width="25" height="25" color="#c52121"/>
 						<Image class="absolute w-3 bottom-1.5 left-1" src={ DropletIcon } alt="water droplet icon" /> 
 					</div>
-					<div class="relative text-[16px] font-semibold font-[Libre_Franklin] bg-white rounded-md w-[75%] h-max p-1"> Drain Installation and Repair </div>
+					<div class="relative text-[12px] font-semibold font-[Libre_Franklin] bg-white rounded-md w-[75%] h-max p-2"> Drain Installation and Repair </div>
 				</div>
 			</div>
 			<div class="w-[60%] h-[60%] m-10">
 				<Image class="rounded-md" src={ WallPipe } alt="wall pipes" />
-				<div class="relative bottom-25 left-6">
+				<div class="relative bottom-21 left-6">
 					<div class="relative top-2 z-10"> 
 						<CircleIcon width="25" height="25" color="#c52121"/> 
 						<Image class="absolute w-3 bottom-2 left-1" src={ PipeIcon } alt="pipe icon" />
 					</div>
-					<div class="relative text-[16px] text-center font-semibold font-[Libre_Franklin] bg-white rounded-md w-[75%] h-max p-4"> Plumbing Inspection </div>
+					<div class="relative text-[12px] text-center font-semibold font-[Libre_Franklin] bg-white rounded-md w-[75%] h-max p-2"> Plumbing Inspection </div>
 				</div>
 			</div>
 		</div>
