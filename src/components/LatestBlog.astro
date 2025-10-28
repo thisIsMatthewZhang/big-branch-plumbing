@@ -7,7 +7,7 @@ const {  blogCover, blogCoverAlt, blogTitle, blogDate, blogDay, blogMonth, blogY
 
 
 <div class="flex flex-col justify-center items-center rounded-lg">
-    <div> 
+    <div class="w-full h-full"> 
         <div class="relative text-center bg-[#c52121] rounded-lg top-25 left-5 w-max h-max">
             <span class="text-2xl font-normal font-[MuseoModerno]"> { blogDay } </span> 
             <br> 
@@ -22,6 +22,6 @@ const {  blogCover, blogCoverAlt, blogTitle, blogDate, blogDay, blogMonth, blogY
             <div class="relative text-white text-[12px] font-normal font-[Golos_Text]"> { blogDate } | Plumbing Services </div>
         </div>
         <div class="relative text-white font-semibold font-[Libre_Franklin] max-w-[20pc] my-5 left-2"> { blogTitle } </div>
-        <div class="my-2"> <a href={ blogUrl }> <button class="bg-[#c52121] rounded-[28px] font-medium font-[Libre_Franklin] px-5 py-2 cursor-pointer"> Read More </button> </a> </div>
+        <div class="my-2"> <a href={ '/posts/' + blogUrl }> <button class="bg-[#c52121] rounded-[28px] font-medium font-[Libre_Franklin] px-5 py-2 cursor-pointer"> Read More </button> </a> </div>
     </div>
 </div>

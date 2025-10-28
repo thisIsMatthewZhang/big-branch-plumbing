@@ -27,16 +27,16 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
         </div>
         <div class="flex mt-5"> <div class="relative font-[Golos_Text] top-1.5 left-1"> <CircleIcon width="20" height="20" color="#c52121" /> </div> Latest Blogs </div>
         <div id="latest-blogs" class="grid grid-cols-2 gap-10">  
-           { mostRecentPosts.map((post: any) => <LatestBlog blogCover={ post.data.cover } 
+           { mostRecentPosts.map((post: any) =>  <LatestBlog blogCover={ post.data.cover } 
                                                             blogCoverAlt={ post.data.coverAlt } 
                                                             blogTitle={ post.data.title } 
                                                             blogDate={ post.data.pubDate.toDateString() } 
                                                             blogDay={ post.data.pubDate.getDate() } 
                                                             blogMonth={ months[post.data.pubDate.getMonth()] } 
                                                             blogYear={ post.data.pubDate.getFullYear() }
-                                                            blogUrl={ post.slug } />) 
+                                                            blogUrl={ post.id } />  ) 
+            
            }
-                
         </div>
         <div id="blog-sorter" class="relative flex flex-col left-[10vw] bottom-12.5 m-3">
             <div class="text-[12px] text-[#1f2022]/80 font-semibold font-[Golos_Text]"> All Blogs </div>
