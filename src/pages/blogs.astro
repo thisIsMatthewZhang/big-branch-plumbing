@@ -1,12 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CircleIcon from '../components/CircleIcon.astro';
-import CopperPipe from '../assets/copper-pipe.png';
 import LatestBlog from '../components/LatestBlog.astro';
-import Faucet from '../assets/faucet.png';
 import Blog from '../components/Blog.astro';
-import FixingFaucet from '../assets/fixing-faucet.jpg';
-import ManGettingSplashed from '../content/blogs/man-getting-splashed.jpg';
 import { getCollection } from 'astro:content';
 
 const allBlogPosts = await getCollection('blogs');
@@ -60,7 +56,6 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
                 targetElement.className = 'text-white text-[12px] bg-[#8c1111] rounded-[28px] font-[Golos_Text] px-3 py-1 cursor-pointer transition-all';
                 otherElement.className = 'text-[#363941]/50 text-[12px] bg-white border-[1px] border-[#363941]/50 rounded-[28px] font-[Golos_Text] px-3 py-1 cursor-pointer transition-all';
             }
-            
         });
         
     </script>
