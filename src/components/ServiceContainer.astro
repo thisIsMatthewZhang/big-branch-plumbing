@@ -6,7 +6,7 @@ import CircleIcon from '../components/CircleIcon.astro';
 const { serviceType, serviceUrl } = Astro.props;
 ---
 
-<div class="bg-gray-100 rounded-sm w-auto h-auto p-2 mx-5">
+<div class="bg-gray-100 rounded-sm w-auto h-auto p-5 mx-5">
     <div data-svg-wrapper>
         <CircleIcon width="30" height="30" color="#c52121"/>
         <svg class="relative bottom-7 left-0.5" width="25" height="25" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,10 +17,10 @@ const { serviceType, serviceUrl } = Astro.props;
         <span class="text-[18px] font-semibold font-[Libre_Franklin] mb-2"> { serviceType } </span>
         <span class="text-[12px] text-[#63656a] font-[Golos_Text] leading-3.5"> Get in touch with us today by using the </br> inquiry form or the contact details below </span>
     </div>
-    <div class="flex justify-start mt-5 cursor-pointer max-w-max"> 
-        <a href={ serviceUrl }> <span class="text-[12px] font-semibold font-[Golos_Text] mt-0.5"> More Details </span> </a>
+    <a class="flex mt-6 cursor-pointer max-w-max" href={ '/services/' + serviceUrl }> 
+        <span class="relative text-[12px] font-semibold font-[Golos_Text] top-0.5"> More Details </span> 
         <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M10.5859 3.27197C10.211 3.64703 10.0003 4.15565 10.0003 4.68597C10.0003 5.2163 10.211 5.72492 10.5859 6.09997L20.4859 16L10.5859 25.9C10.2216 26.2772 10.02 26.7824 10.0246 27.3068C10.0291 27.8312 10.2395 28.3328 10.6103 28.7036C10.9811 29.0744 11.4827 29.2848 12.0071 29.2893C12.5315 29.2939 13.0367 29.0923 13.4139 28.728L24.7279 17.414C25.1028 17.0389 25.3135 16.5303 25.3135 16C25.3135 15.4696 25.1028 14.961 24.7279 14.586L13.4139 3.27197C13.0388 2.89703 12.5302 2.6864 11.9999 2.6864C11.4696 2.6864 10.961 2.89703 10.5859 3.27197Z" fill="#363941"/>
         </svg>
-    </div>
+    </a>
 </div>

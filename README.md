@@ -1,3 +1,14 @@
+# Some Directions to Help Make Navigating Easier
+
+## Content Collections for Blogs
+Inside 'src', you'll see a directory called 'content' - this contains subdirectories for 'blogs' and 'services'. The 'blogs' folder will have one markdown for a post along with its cover image specified in the frontmatter. For example, one blog I already made called 'prevent-frozen-pipes' has the 'frozen-pipes.jpg' cover image. So, whenever you create a new markdown for a blog, place it and its corresponding cover image inside 'blogs', and you can use follow the frontmatter format from the markdowns that are already made as a reference. 
+
+## Content Collections for Services
+Most of what was said for 'blogs' applies to 'services'. The main difference is that each service markdown doesn't have a cover image. Instead, there's simply an image (and its alt of course) for each service route. 
+
+I've already set it to list out all the services dynamically, so you should be able to just add each new service markdown and it'll pop up on the services page.
+
+
 # Astro Starter Kit: Minimal
 
 ```sh

@@ -3,15 +3,16 @@ import '../styles/global.css';
 import Image from 'astro/components/Image.astro';
 import RightArrow from '../assets/arrow-right-bold.svg';
 
-const { backgroundImage, title } = Astro.props;
+const { blogCover, blogCoverAlt, blogTitle, blogUrl } = Astro.props;
 ---
-
-<div class="max-w-[90%] cursor-pointer"> 
-    <Image class="rounded-tr-md rounded-bl-md w-full h-full" src={ backgroundImage } alt={ backgroundImage.src } />
-    <div class="relative flex justify-between items-center text-white text-[12px] font-semibold bg-[#8c1111] rounded-bl-md w-full h-max bottom-9"> 
-        <span class="text-center font-bold font-[Libre_Franklin] px-5"> { title } </span> 
-        <div class="bg-[#c52121] w-max h-full p-3">
-            <Image class="w-8 h-3" src={ RightArrow } alt="arrow pointing right" />
+<a href={ '/posts/' + blogUrl }>
+    <div class="max-w-[90%] cursor-pointer"> 
+        <Image class="rounded-tr-md rounded-bl-md w-full h-full" src={ blogCover } alt={ blogCoverAlt } />
+        <div class="relative flex justify-between items-center text-white text-[12px] font-semibold bg-[#8c1111] rounded-bl-md w-full h-max bottom-9"> 
+            <span class="text-center font-bold font-[Libre_Franklin] px-5"> { blogTitle } </span> 
+            <div class="bg-[#c52121] w-max h-full p-3">
+                <Image class="w-8 h-3" src={ RightArrow } alt="arrow pointing right" />
+            </div>
         </div>
     </div>
-</div>
+</a>

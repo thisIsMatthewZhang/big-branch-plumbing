@@ -1,6 +1,4 @@
 ---
-
-layout: ../../layouts/BlogPostLayout.astro
 title: 'Tips Every Homeowner Should Know'
 pubDate: 2025-21-12
 description: 'This blog gives tips that homeowners should keep in mind regarding plumbing'

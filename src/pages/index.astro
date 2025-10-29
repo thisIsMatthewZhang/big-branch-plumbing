@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
 import ReviewStar from '../components/ReviewStar.astro';
 import Image from 'astro/components/Image.astro';
+// import LatestBlog from '../components/LatestBlog.astro';
 import ManFixingPipe from '../assets/man-fixing-pipe.jpg';
 import PlumberTeamRed from '../assets/plumber-team-red.png';
 import SinkDrain from '../assets/drain.png';
@@ -13,16 +14,14 @@ import BathtubIcon from '../assets/bathtub-icon.svg';
 import DropletIcon from '../assets/water-droplet.svg';
 import PipeIcon from '../assets/pipe-icon.svg';
 import CheckMarkIcon from '../assets/check-mark-icon.svg';
-import LatestBlog from '../components/LatestBlog.astro';
-import Faucet from '../assets/faucet.png';
-import CopperPipe from '../assets/copper-pipe.png';
 import TruckCircles from '../assets/truck-circles.webp';
+import { getCollection } from 'astro:content';
 
 
-const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
+const allPosts = await getCollection('blogs');
 const mostRecentPosts = allPosts.sort((a: any, b: any) => {
-        const dateOne: any = new Date(a.frontmatter.pubDate)
-        const dateTwo: any = new Date(b.frontmatter.pubDate); 
+        const dateOne: any = new Date(a.data.pubDate)
+        const dateTwo: any = new Date(b.data.pubDate); 
         return dateTwo - dateOne;
 }).slice(0, 2);
 ---
@@ -180,7 +179,16 @@ const mostRecentPosts = allPosts.sort((a: any, b: any) => {
 			Explore our latest blog
 		</div>
 		<div class="grid grid-cols-2 gap-10"> 
-			{ mostRecentPosts.map((post: any) => <div> <LatestBlog backgroundImage={ Faucet } blogTitle={ post.frontmatter.title } blogDate={ post.frontmatter.pubDate } blogUrl={ post.url } /> </div>) }
+			{ mostRecentPosts.map((post: any) => mostRecentPosts.map((post: any) =>  <LatestBlog blogCover={ post.data.cover } 
+                                                            blogCoverAlt={ post.data.coverAlt } 
+                                                            blogTitle={ post.data.title } 
+                                                            blogDate={ post.data.pubDate.toDateString() } 
+                                                            blogDay={ post.data.pubDate.getDate() } 
+                                                            blogMonth={ months[post.data.pubDate.getMonth()] } 
+                                                            blogYear={ post.data.pubDate.getFullYear() }
+                                                            blogUrl={ post.id } />  ) 
+            
+            }
 		</div>
 		<div class="relative justify-self-center bottom-10"> 
 			<a href="/blogs/"> <button class="bg-[#c52121] rounded-[28px] px-5 py-2 cursor-pointer"> See All Tips </button> </a> 

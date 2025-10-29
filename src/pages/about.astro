@@ -25,12 +25,12 @@ import PlumberTeamWhite from '../assets/plumber-team-white.png';
             </div>
             <div id="about-page-end">
                 <div class="bg-linear-to-br from-[#9b0000] from-25% via-[#ff0000] via-50% to-white to-75% rounded-lg">
-                    <Image src={ PlumberTeamWhite } alt="team of plumbers wearing white" />
+                    <Image loading={'eager'} src={ PlumberTeamWhite } alt="team of plumbers wearing white" />
                 </div>
                 <div class="grid grid-cols-2 place-items-center gap-2 bg-white rounded-md w-full h-max p-3 mt-3">
-                    <div class="flex justify-around items-center bg-[#f5f6f7] rounded-md w-full h-full p-3"> <span class="text-[#440c0c] text-2xl font-[MuseoModerno]"> 38 </span> <span class="font-[Golos_Text]"> Years Experience </span> </div>
-                    <div class="flex justify-around items-center bg-[#f5f6f7] rounded-md w-full h-full p-3"> <span class="text-[#440c0c] text-2xl font-[MuseoModerno]"> 100+ </span> <span class="font-[Golos_Text]"> Projects </span>  </div>
-                    <div class="flex justify-around items-center bg-[#f5f6f7] rounded-md w-full h-full p-3"> <span class="text-[#440c0c] text-2xl font-[MuseoModerno]"> 46 </span> <span class="font-[Golos_Text]"> Positive Reviews </span> </div>
+                    <div class="flex justify-evenly items-center bg-[#f5f6f7] rounded-md w-full h-full p-3"> <span class="text-[#440c0c] text-2xl font-[MuseoModerno]"> 38 </span> <span class="font-[Golos_Text]"> Years Experience </span> </div>
+                    <div class="flex justify-evenly items-center bg-[#f5f6f7] rounded-md w-full h-full p-3"> <span class="text-[#440c0c] text-2xl font-[MuseoModerno]"> 100+ </span> <span class="font-[Golos_Text]"> Projects </span>  </div>
+                    <div class="flex justify-evenly items-center bg-[#f5f6f7] rounded-md w-full h-full p-3"> <span class="text-[#440c0c] text-2xl font-[MuseoModerno]"> 46 </span> <span class="font-[Golos_Text]"> Positive Reviews </span> </div>
                     <div class="flex justify-evenly items-center bg-[#f5f6f7] rounded-md w-full h-full p-3"> <span class="text-[#440c0c] text-2xl font-[MuseoModerno]"> 100% </span> <span class="font-[Golos_Text]"> Certified </span> </div>
                 </div>
             </div>
@@ -38,18 +38,18 @@ import PlumberTeamWhite from '../assets/plumber-team-white.png';
         <div class="m-5">
             <span class="text-2xl font-[Golos_Text] m-5"> Meet the team </span>
             <div class="grid grid-cols-3 gap-20 m-10 place-items-center">
-                <Image class="bg-[#fa6969]/12 rounded-lg object-cover w-full h-full" src={ Worker } alt="industrial worker" />
+                <Image loading={'eager'} class="bg-[#fa6969]/12 rounded-lg object-cover w-full h-full" src={ Worker } alt="industrial worker" />
                 <div class="w-full h-full">
-                    <Image class="bg-[#fa6969]/12 rounded-lg w-full h-full" src={ Technician } alt="technician" />
+                    <Image loading={'eager'} class="bg-[#fa6969]/12 rounded-lg w-full h-full" src={ Technician } alt="technician" />
                     <div class="relative justify-self-center bottom-20 bg-white rounded-lg p-2 text-center w-[75%] h-max font-[Golos_Text] shadow-md">
                         Derrick Johnson
                         <div class="text-[10px] font-[Golos_Text]">Technician</div>
                     </div>
                 </div>
-                <Image class="bg-[#fa6969]/12 rounded-lg object-cover w-full h-full" src={ Worker } alt="industrial worker" />
-                <Image class="bg-[#fa6969]/12 rounded-lg object-cover w-full h-full" src={ Worker } alt="industrial worker" />
-                <Image class="bg-[#fa6969]/12 rounded-lg object-cover w-full h-full" src={ Technician } alt="technician" />
-                <Image class="bg-[#fa6969]/12 rounded-lg object-cover w-full h-full" src={ Worker } alt="industrial worker" />
+                <Image loading={'eager'} class="bg-[#fa6969]/12 rounded-lg object-cover w-full h-full" src={ Worker } alt="industrial worker" />
+                <Image loading={'lazy'} class="bg-[#fa6969]/12 rounded-lg object-cover w-full h-full" src={ Worker } alt="industrial worker" />
+                <Image loading={'lazy'} class="bg-[#fa6969]/12 rounded-lg object-cover w-full h-full" src={ Technician } alt="technician" />
+                <Image loading={'lazy'} class="bg-[#fa6969]/12 rounded-lg object-cover w-full h-full" src={ Worker } alt="industrial worker" />
             </div>
         </div>
 

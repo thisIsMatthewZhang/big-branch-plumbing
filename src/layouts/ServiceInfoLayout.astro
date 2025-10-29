@@ -1,4 +1,5 @@
 ---
+import '../styles/global.css'
 import Layout from '../layouts/Layout.astro';
 import Image from 'astro/components/Image.astro';
 
@@ -7,11 +8,15 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout>
-    <div id="page-container" class="flex justify-evenly items-center m-5">
-        <div class="flex flex-col my-2">
-            <span class="font-bold"> { frontmatter.title } </span>
-            <!-- <Image src={ frontmatter.image.url } alt={frontmatter.image.alt} /> -->
+    <div id="page-container" class="flex justify-center items-center m-5 w-[90%] h-full">
+        <div class="flex flex-col my-2 w-full h-full">
+            <span class="text-2xl font-bold w-full h-full my-2"> { frontmatter.title } </span>
+            <Image class="w-[50%] h-full" src={ frontmatter.image } alt={frontmatter.imageAlt} />
+            <div class="flex w-[50%] h-auto"> 
+                <div class="bg-[#F5F5F5] text-[#63656A] w-full pl-1"> { frontmatter.description } </div>
+                <a href="/contact/"> <button class="text-white text-center font-semibold font-[Golos_Text] bg-[#C52121] cursor-pointer" type="button"> Book Now </button> </a>
+            </div>
         </div>
-        <div class="flex flex-col text-[12px] max-w-[50ch]"> <slot /> </div>
+        <div class="flex flex-col text-[16px] max-w-[50ch] h-full font-[Golos_Text]"> <slot /> </div>
     </div>
 </Layout>
