@@ -1,53 +1,269 @@
 ---
 import '../styles/global.css';
 import Layout from "../layouts/Layout.astro";
-import ServiceContainer from '../components/ServiceContainer.astro';
-import Image from 'astro/components/Image.astro';
-import Toilet from '../assets/toilet.png';
-import BathTub from '../assets/bathtub.png';
-import Sink from '../assets/drain.png';
-import DrainPipes from '../assets/drain-pipe.png';
 import { getCollection } from 'astro:content';
 
+// Import icons
+import Wrench from '../components/icons/Wrench.astro';
+import Droplet from '../components/icons/Droplet.astro';
+import Pipe from '../components/icons/Pipe.astro';
+import PipeWrench from '../components/icons/PipeWrench.astro';
+import Check from '../components/icons/Check.astro';
+
 const allServices = await getCollection('services');
+
+const metaTitle = "Plumbing Services Northshore | Big Branch Plumbing | Hammond, Mandeville, Covington";
+const metaDescription = "Professional plumbing services across the Northshore: drain cleaning, water heater repair, leak detection, fixture installation, and emergency plumbing. Call (985) 626-5711.";
 ---
 
-<Layout>
-    <div id="service-page-container" class="w-screen h-auto">
-        <div class="flex flex-col m-10"> 
-            <span class="text-4xl font-semibold font-[Inter]"> Reliable Plumbing Solutions, </br> Simplified For You </span>
-            <span class="text-[#63656a] font-semibold font-[Golos_Text]"> Experience top-notch plumbing services with fast response time, </br> expert repairs, and long-lasting solutions - all in one place. </span>
+<Layout title={metaTitle} description={metaDescription}>
+    <div id="service-page-container" class="w-full">
+        
+        <!-- Hero Section -->
+        <div class="bg-[#f7f9fb] w-full py-12 md:py-16">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <h1 class="text-3xl md:text-5xl font-semibold font-[Inter] text-zinc-900 mb-4 leading-tight">
+                    Professional Plumbing Services
+                </h1>
+                <p class="text-lg md:text-xl text-zinc-700 font-[Golos_Text] max-w-3xl mx-auto leading-relaxed">
+                    Your trusted Northshore plumber providing expert solutions for residential customers. 
+                    Licensed, insured, and guaranteed workmanship on every job.
+                </p>
+            </div>
         </div>
 
+        <!-- Service Cards Grid -->
+        <div class="bg-white w-full py-12 md:py-16">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {allServices.map((service: any) => (
+                        <div class="bg-[#f7f9fb] rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
+                            <div class="flex items-center gap-3 mb-4">
+                                {service.data.title.includes('Drain') ? (
+                                    <Droplet size={28} color="#c52121" />
+                                ) : service.data.title.includes('Water') ? (
+                                    <Droplet size={28} color="#c52121" />
+                                ) : service.data.title.includes('Fixture') ? (
+                                    <Wrench size={28} color="#c52121" />
+                                ) : service.data.title.includes('Leak') ? (
+                                    <Droplet size={28} color="#c52121" />
+                                ) : service.data.title.includes('Pipe') ? (
+                                    <PipeWrench size={28} color="#c52121" />
+                                ) : service.data.title.includes('Septic') ? (
+                                    <Pipe size={28} color="#c52121" />
+                                ) : service.data.title.includes('Bathroom') ? (
+                                    <Wrench size={28} color="#c52121" />
+                                ) : service.data.title.includes('Kitchen') ? (
+                                    <Wrench size={28} color="#c52121" />
+                                ) : (
+                                    <Wrench size={28} color="#c52121" />
+                                )}
+                                <h3 class="text-xl font-semibold font-[Libre_Franklin] text-zinc-900">
+                                    {service.data.title}
+                                </h3>
+                            </div>
+                            <p class="text-zinc-700 font-[Golos_Text] text-sm leading-relaxed mb-4 flex-grow">
+                                {service.data.description}
+                            </p>
+                            <a 
+                                href={`/services/${service.id}`} 
+                                class="inline-flex items-center gap-2 text-red-800 font-semibold text-sm hover:underline mt-auto"
+                            >
+                                Learn More
+                                <svg width="16" height="16" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10.5859 3.27197C10.211 3.64703 10.0003 4.15565 10.0003 4.68597C10.0003 5.2163 10.211 5.72492 10.5859 6.09997L20.4859 16L10.5859 25.9C10.2216 26.2772 10.02 26.7824 10.0246 27.3068C10.0291 27.8312 10.2395 28.3328 10.6103 28.7036C10.9811 29.0744 11.4827 29.2848 12.0071 29.2893C12.5315 29.2939 13.0367 29.0923 13.4139 28.728L24.7279 17.414C25.1028 17.0389 25.3135 16.5303 25.3135 16C25.3135 15.4696 25.1028 14.961 24.7279 14.586L13.4139 3.27197C13.0388 2.89703 12.5302 2.6864 11.9999 2.6864C11.4696 2.6864 10.961 2.89703 10.5859 3.27197Z" fill="#8c1111"/>
+                                </svg>
+                            </a>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
 
-        <div class="grid grid-cols-4 gap-5 m-10">
-            <div class="w-full h-full">
-                <span class="text-red-800 font-semibold font-[Libre_Franklin] leading-loose h-[10%]"> Septic System Services </span>
-                <Image loading={'eager'} class="rounded-sm w-full h-[75%]" src={ Toilet } alt="nice toilet" />
-                <span class="text-[12px] text-[#63656a] font-[Golos_Text] h-[20%]"> Get in touch with us today by using the inquiry form or the contact details below </span>
-            </div>
-            <div class="w-full h-full">
-                <span class="text-red-800 font-semibold font-[Libre_Franklin] leading-loose h-[10%]"> Fixture Installation </span>
-                <Image loading={'eager'} class="rounded-sm w-full h-[75%]" src={ BathTub } alt="bathtub"/>
-                <span class="text-[12px] text-[#63656a] font-[Golos_Text] h-[20%]"> Get in touch with us today by using the inquiry form or the contact details below </span>
-            </div>
-            <div class="w-full h-full">
-                <span class="text-red-800 font-semibold font-[Libre_Franklin] leading-loose h-[10%]"> Drain Cleaning </span>
-                <Image loading={'eager'} class="rounded-sm w-full h-[75%]" src={ Sink } alt="sink drain"/>
-                <span class="text-[12px] text-[#63656a] font-[Golos_Text] h-[20%]"> Get in touch with us today by using the inquiry form or the contact details below </span>
-            </div>
-            <div class="w-full h-full">
-                <span class="text-red-800 font-semibold font-[Libre_Franklin] leading-loose h-[10%]"> Leak Repair </span>
-                <Image loading={'eager'} class="rounded-sm w-full h-[75%]" src={ DrainPipes } alt="drain pipes"/>
-                <span class="text-[12px] text-[#63656a] font-[Golos_Text] h-[20%]"> Get in touch with us today by using the inquiry form or the contact details below </span>
+        <!-- Service Area Coverage -->
+        <div class="bg-[#f7f9fb] w-full py-12 md:py-16">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-semibold font-[Inter] text-zinc-900 mb-3">
+                        Service Area Coverage
+                    </h2>
+                    <p class="text-zinc-600 font-[Golos_Text] text-lg mb-6">
+                        We proudly provide plumbing services to all Northshore communities
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 max-w-5xl mx-auto">
+                    {[
+                        'Hammond', 'Ponchatoula', 'Mandeville', 'Covington', 
+                        'Madisonville', 'Slidell', 'Abita Springs', 'Lacombe', 
+                        'Pearl River', 'Folsom', 'Loranger', 'Amite City', 
+                        'Tickfaw', 'Independence'
+                    ].map((city) => (
+                        <div class="bg-white px-3 py-2 rounded-lg text-sm font-semibold font-[Golos_Text] text-zinc-700 text-center shadow-sm">
+                            {city}
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
-        <div class="flex flex-col mx-10 my-10">
-            <span class="text-[#63656a] font-semibold font-[Golos_Text]"> Services </span>
-            <span class="text-2xl font-semibold font-[Golos_Text]"> Expert Plumbing Services for </br> Every Home and Business Need. </span>
+
+        <!-- Why Choose Big Branch -->
+        <div class="bg-white w-full py-12 md:py-16">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-semibold font-[Inter] text-zinc-900 mb-3">
+                        Why Choose Big Branch Plumbing?
+                    </h2>
+                    <p class="text-zinc-600 font-[Golos_Text] text-lg max-w-2xl mx-auto">
+                        We're committed to providing the best plumbing experience in the Northshore area
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                    <div class="flex flex-col items-center text-center p-6 bg-[#f7f9fb] rounded-xl">
+                        <Check size={32} color="#8c1111" class="mb-3" />
+                        <h3 class="font-semibold font-[Inter] text-zinc-900 mb-2">38+ Years Experience</h3>
+                        <p class="text-sm text-zinc-700 font-[Golos_Text]">
+                            Decades of serving the Northshore with quality work
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-center text-center p-6 bg-[#f7f9fb] rounded-xl">
+                        <Check size={32} color="#8c1111" class="mb-3" />
+                        <h3 class="font-semibold font-[Inter] text-zinc-900 mb-2">Licensed & Insured</h3>
+                        <p class="text-sm text-zinc-700 font-[Golos_Text]">
+                            Full protection and peace of mind
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-center text-center p-6 bg-[#f7f9fb] rounded-xl">
+                        <Check size={32} color="#8c1111" class="mb-3" />
+                        <h3 class="font-semibold font-[Inter] text-zinc-900 mb-2">Upfront Pricing</h3>
+                        <p class="text-sm text-zinc-700 font-[Golos_Text]">
+                            No surprises, no hidden fees
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-center text-center p-6 bg-[#f7f9fb] rounded-xl">
+                        <Check size={32} color="#8c1111" class="mb-3" />
+                        <h3 class="font-semibold font-[Inter] text-zinc-900 mb-2">Workmanship Guaranteed</h3>
+                        <p class="text-sm text-zinc-700 font-[Golos_Text]">
+                            Every job backed by our guarantee
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="grid grid-cols-3 grid-rows-4 gap-y-4 mb-10">
-            { allServices.map((service: any) => <ServiceContainer serviceType={ service.data.title } serviceUrl={ service.id } />) }
+
+        <!-- Customer Testimonials -->
+        <div class="bg-[#f7f9fb] w-full py-12 md:py-16">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-semibold font-[Inter] text-zinc-900 mb-3">
+                        What Our Customers Say
+                    </h2>
+                    <p class="text-zinc-600 font-[Golos_Text] text-lg">
+                        Real reviews from satisfied Northshore homeowners
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <div class="flex mb-3">
+                            {[1,2,3,4,5].map(() => (
+                                <svg width="16" height="16" viewBox="0 0 20 20" fill="#fbbf24" class="mr-1">
+                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                </svg>
+                            ))}
+                        </div>
+                        <p class="text-zinc-700 font-[Golos_Text] mb-4 italic">
+                            "Fast response time and fixed our water heater the same day. Professional, honest pricing. Will definitely use them again!"
+                        </p>
+                        <p class="text-sm font-semibold font-[Golos_Text] text-zinc-900">- Sarah M., Mandeville</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <div class="flex mb-3">
+                            {[1,2,3,4,5].map(() => (
+                                <svg width="16" height="16" viewBox="0 0 20 20" fill="#fbbf24" class="mr-1">
+                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                </svg>
+                            ))}
+                        </div>
+                        <p class="text-zinc-700 font-[Golos_Text] mb-4 italic">
+                            "Big Branch Plumbing saved us from a major flood. They arrived within an hour and worked efficiently to fix the problem."
+                        </p>
+                        <p class="text-sm font-semibold font-[Golos_Text] text-zinc-900">- Mike T., Covington</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <div class="flex mb-3">
+                            {[1,2,3,4,5].map(() => (
+                                <svg width="16" height="16" viewBox="0 0 20 20" fill="#fbbf24" class="mr-1">
+                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                                </svg>
+                            ))}
+                        </div>
+                        <p class="text-zinc-700 font-[Golos_Text] mb-4 italic">
+                            "Excellent service at fair prices. The plumber was knowledgeable, clean, and took time to explain everything. Five stars!"
+                        </p>
+                        <p class="text-sm font-semibold font-[Golos_Text] text-zinc-900">- Jennifer L., Hammond</p>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <!-- FAQ Section -->
+        <div class="bg-white w-full py-12 md:py-16">
+            <div class="max-w-4xl mx-auto px-4">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-semibold font-[Inter] text-zinc-900 mb-3">
+                        Frequently Asked Questions
+                    </h2>
+                </div>
+                <div class="space-y-4">
+                    <div class="bg-[#f7f9fb] p-5 rounded-lg">
+                        <h3 class="font-semibold font-[Inter] text-zinc-900 mb-2">How quickly can you respond to service calls?</h3>
+                        <p class="text-zinc-700 font-[Golos_Text] text-sm leading-relaxed">
+                            We offer same-day service for most plumbing issues. For emergencies, we strive to arrive within 2-4 hours depending on your location in the Northshore area.
+                        </p>
+                    </div>
+                    <div class="bg-[#f7f9fb] p-5 rounded-lg">
+                        <h3 class="font-semibold font-[Inter] text-zinc-900 mb-2">Do you provide free estimates?</h3>
+                        <p class="text-zinc-700 font-[Golos_Text] text-sm leading-relaxed">
+                            Yes, we provide free estimates for major work like water heater replacements, repiping, and fixture installations. Service calls have a diagnostic fee.
+                        </p>
+                    </div>
+                    <div class="bg-[#f7f9fb] p-5 rounded-lg">
+                        <h3 class="font-semibold font-[Inter] text-zinc-900 mb-2">What areas do you service?</h3>
+                        <p class="text-zinc-700 font-[Golos_Text] text-sm leading-relaxed">
+                            We service all Northshore communities including Hammond, Ponchatoula, Mandeville, Covington, Madisonville, Slidell, and surrounding areas.
+                        </p>
+                    </div>
+                    <div class="bg-[#f7f9fb] p-5 rounded-lg">
+                        <h3 class="font-semibold font-[Inter] text-zinc-900 mb-2">Are you licensed and insured?</h3>
+                        <p class="text-zinc-700 font-[Golos_Text] text-sm leading-relaxed">
+                            Yes, we are fully licensed and insured. You can have complete confidence in our work and your protection.
+                        </p>
+                    </div>
+                    <div class="bg-[#f7f9fb] p-5 rounded-lg">
+                        <h3 class="font-semibold font-[Inter] text-zinc-900 mb-2">Do you offer any warranties?</h3>
+                        <p class="text-zinc-700 font-[Golos_Text] text-sm leading-relaxed">
+                            Yes, all our work is backed by our workmanship guarantee. We stand behind every job we complete.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service Guarantee -->
+        <div class="bg-red-800 text-white w-full py-12 md:py-16">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-semibold font-[Inter] mb-3">
+                    Ready to Get Started?
+                </h2>
+                <p class="text-lg font-[Golos_Text] mb-6 opacity-90">
+                    Contact Big Branch Plumbing today for professional service you can trust.
+                </p>
+                <a href="/contact/" class="inline-block bg-white text-red-800 font-semibold font-[Golos_Text] px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors text-lg">
+                    Contact Us Today
+                </a>
+            </div>
+        </div>
+
     </div>
 </Layout>

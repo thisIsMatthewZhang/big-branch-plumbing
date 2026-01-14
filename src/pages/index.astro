@@ -1,9 +1,7 @@
 ---
 import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
-import ReviewStar from '../components/ReviewStar.astro';
-import Image from 'astro/components/Image.astro';
-// import LatestBlog from '../components/LatestBlog.astro';
+import { Image } from 'astro:assets';
 import ManFixingPipe from '../assets/man-fixing-pipe.jpg';
 import PlumberTeamRed from '../assets/plumber-team-red.png';
 import SinkDrain from '../assets/drain.png';
@@ -13,188 +11,319 @@ import CircleIcon from '../components/CircleIcon.astro';
 import BathtubIcon from '../assets/bathtub-icon.svg';
 import DropletIcon from '../assets/water-droplet.svg';
 import PipeIcon from '../assets/pipe-icon.svg';
-import CheckMarkIcon from '../assets/check-mark-icon.svg';
 import TruckCircles from '../assets/truck-circles.webp';
-import { getCollection } from 'astro:content';
+import Wrench from '../components/icons/Wrench.astro';
+import Droplet from '../components/icons/Droplet.astro';
+import Pipe from '../components/icons/Pipe.astro';
+import PipeWrench from '../components/icons/PipeWrench.astro';
+import Check from '../components/icons/Check.astro';
 
-
-const allPosts = await getCollection('blogs');
-const mostRecentPosts = allPosts.sort((a: any, b: any) => {
-        const dateOne: any = new Date(a.data.pubDate)
-        const dateTwo: any = new Date(b.data.pubDate); 
-        return dateTwo - dateOne;
-}).slice(0, 2);
+const metaTitle = "Big Branch Plumbing | Licensed Northshore Plumber | (985) 626-5711";
+const metaDescription = "Your trusted Northshore plumber serving Hammond, Mandeville, Covington, and all surrounding communities. Licensed, insured, 38+ years experience. Call today!";
 ---
 
-<Layout>
+<Layout title={metaTitle} description={metaDescription}>
 	
-	<div id="top-container" class="bg-[#f7f9fb] w-screen h-auto py-3"> <!-- REMOVE PLACEHOLDER COLOR LATER -->
-		<div class="flex justify-evenly"> 
-			<div>
-				<div class="w-[600px] text-[#25272d] text-5xl font-semibold font-[Golos_Text] leading-[50px] ml-10 mt-10"> Licensed, Reliable Plumbing on the Northshore </div>
-				<a href="/contact/"> 
-					<button type="button" id="book-now" class="flex items-center justify-center rounded-4xl bg-red-800 w-[160px] h-[50px] shadow-sm shadow-black py-1 ml-10 mt-10 cursor-pointer">
-						<div data-svg-wrapper class="self-end">
-							<svg width="24" height="16" viewBox="0 0 71 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M70 34C68.3736 34 55.8796 34 37.4057 33.9045C24.052 33.8354 16.6236 28.9863 12.6561 26.2016C4.38279 20.3947 2.93857 12.8221 1.6859 7.95895C1.55036 7.18316 1.27929 6.41895 1.13965 5.26105C1.00001 4.10316 1 2.57474 1 1" stroke="#F2F2F2" stroke-width="4" stroke-linecap="round"/>
-							</svg>
-						</div>
-						<span class="text-white font-normal font-[Golos_Text] text-[20px]"> Book Now </span>
-						<div data-svg-wrapper class="self-start">
-							<svg width="24" height="16" viewBox="0 0 56 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M1.52075 1.88251C2.76658 1.88251 12.3368 1.88251 26.4876 1.98633C36.7164 2.06137 42.4065 7.33143 45.4456 10.3579C51.7828 16.6689 52.8891 24.8988 53.8486 30.1842C53.9525 31.0273 54.1601 31.8579 54.2671 33.1163C54.374 34.3747 54.374 36.0358 54.374 37.7472" stroke="#F2F2F2" stroke-width="4" stroke-linecap="round"/>
-							</svg>
-						</div>
+	<!-- Hero Section -->
+	<div id="top-container" class="bg-[#f7f9fb] w-full h-auto py-8 md:py-12"> 
+		<div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8"> 
+			<div class="w-full md:w-1/2">
+				<h1 class="text-[#25272d] text-3xl md:text-5xl font-semibold font-[Golos_Text] leading-tight md:leading-[50px] mb-6"> 
+					Licensed, Reliable Plumbing on the Northshore 
+				</h1>
+				<p class="text-zinc-700 text-base md:text-lg font-[Golos_Text] mb-6 leading-relaxed">
+					Your trusted local plumber serving Hammond, Ponchatoula, Mandeville, Covington, and all surrounding Northshore communities. 
+					Upfront pricing, guaranteed workmanship, and 38+ years of experience.
+				</p>
+				<a href="/contact/" class="inline-block"> 
+					<button type="button" id="book-now" class="flex items-center justify-center gap-2 rounded-lg bg-red-800 w-full md:w-[180px] h-[50px] shadow-md hover:bg-red-900 transition-colors cursor-pointer px-4">
+						<span class="text-white font-normal font-[Golos_Text] text-lg"> Book Now </span>
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
+							<path d="M5 12h14M12 5l7 7-7 7" stroke="#F2F2F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
 					</button>
 				</a>
 			</div>
-			<Image loading={'eager'} class="relative right-45 w-[50%] h-[50%] z-20" src={ TruckCircles } alt="big truck with two circles behind it" />
+				<div class="w-full md:w-1/2 flex justify-center">
+					<Image 
+						loading={'eager'} 
+						class="w-full max-w-md h-auto rounded-lg" 
+						src={ TruckCircles } 
+						alt="Big Branch Plumbing service truck - your trusted Northshore plumber" 
+					/>
+				</div>
 		</div>
-		<div class="relative flex items-center justify-between justify-self-center w-[90%] h-auto bg-[#fbbfbf] border-[3px] border-[#de3a3a] rounded-[36px] shadow-sm shadow-black px-10 py-3 my-15">
-			<div class="flex flex-col text-2xl font-[Golos_Text] items-center">
-				<div data-svg-wrapper class="relative">
-					<svg width="48" height="60" viewBox="0 0 48 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M24 3.75001L25.1491 1.06668C24.786 0.911015 24.395 0.83075 24 0.83075C23.6049 0.83075 23.2139 0.911015 22.8508 1.06668L24 3.75001ZM24 56.25L22.5533 58.7817C22.9939 59.0334 23.4925 59.1657 24 59.1657C24.5074 59.1657 25.006 59.0334 25.4466 58.7817L24 56.25ZM22.8508 1.06959L4.20163 9.05834L6.49996 14.425L25.1491 6.43334L22.8508 1.06959ZM0.666626 14.4221V34.4304H6.49996V14.4221H0.666626ZM10.9537 52.155L22.5533 58.7817L25.4466 53.7183L13.847 47.0888L10.9537 52.155ZM25.4466 58.7817L37.0462 52.155L34.1529 47.0888L22.5533 53.7183L25.4466 58.7817ZM47.3333 34.4275V14.425H41.5V34.4333L47.3333 34.4275ZM43.7983 9.06126L25.1491 1.06959L22.8508 6.43043L41.5 14.425L43.7983 9.06126ZM47.3333 14.425C47.3332 13.2836 46.9982 12.1673 46.3698 11.2144C45.7415 10.2615 44.8474 9.51098 43.7983 9.06126L41.5 14.425H47.3333ZM37.0462 52.155C40.1718 50.3689 42.7696 47.7911 44.5762 44.6773C46.3828 41.5635 47.334 38.0274 47.3333 34.4275H41.5C41.4996 36.9985 40.8196 39.5238 39.5289 41.7473C38.2381 43.9708 36.3824 45.8135 34.15 47.0888L37.0462 52.155ZM0.666626 34.4275C0.666465 38.0269 1.61789 41.5624 3.42446 44.6757C5.23103 47.7889 7.82854 50.3692 10.9537 52.155L13.847 47.0888C11.616 45.8137 9.76145 43.9717 8.47126 41.7493C7.18106 39.5269 6.50101 37.0031 6.49996 34.4333L0.666626 34.4275ZM4.20163 9.05834C3.15208 9.50826 2.25767 10.2592 1.62929 11.2127C1.0009 12.1662 0.666182 13.2831 0.666626 14.425H6.49996L4.20163 9.05834Z" fill="#8C1111"/>
-					<path d="M32.75 24.1667L21.0833 35.8334L15.25 30" stroke="#8C1111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-					</svg>
+		
+		<!-- Trust Indicators -->
+		<div class="max-w-7xl mx-auto px-4 mt-8 md:mt-12">
+			<div class="bg-[#fbbfbf] border-2 border-[#de3a3a] rounded-2xl shadow-md px-4 md:px-8 py-6 md:py-8 flex flex-col md:flex-row justify-around items-center gap-6 md:gap-8">
+				<div class="flex flex-col items-center text-center">
+					<div class="mb-2">
+						<svg width="40" height="50" viewBox="0 0 48 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M24 3.75001L25.1491 1.06668C24.786 0.911015 24.395 0.83075 24 0.83075C23.6049 0.83075 23.2139 0.911015 22.8508 1.06668L24 3.75001ZM24 56.25L22.5533 58.7817C22.9939 59.0334 23.4925 59.1657 24 59.1657C24.5074 59.1657 25.006 59.0334 25.4466 58.7817L24 56.25ZM22.8508 1.06959L4.20163 9.05834L6.49996 14.425L25.1491 6.43334L22.8508 1.06959ZM0.666626 14.4221V34.4304H6.49996V14.4221H0.666626ZM10.9537 52.155L22.5533 58.7817L25.4466 53.7183L13.847 47.0888L10.9537 52.155ZM25.4466 58.7817L37.0462 52.155L34.1529 47.0888L22.5533 53.7183L25.4466 58.7817ZM47.3333 34.4275V14.425H41.5V34.4333L47.3333 34.4275ZM43.7983 9.06126L25.1491 1.06959L22.8508 6.43043L41.5 14.425L43.7983 9.06126ZM47.3333 14.425C47.3332 13.2836 46.9982 12.1673 46.3698 11.2144C45.7415 10.2615 44.8474 9.51098 43.7983 9.06126L41.5 14.425H47.3333ZM37.0462 52.155C40.1718 50.3689 42.7696 47.7911 44.5762 44.6773C46.3828 41.5635 47.334 38.0274 47.3333 34.4275H41.5C41.4996 36.9985 40.8196 39.5238 39.5289 41.7473C38.2381 43.9708 36.3824 45.8135 34.15 47.0888L37.0462 52.155ZM0.666626 34.4275C0.666465 38.0269 1.61789 41.5624 3.42446 44.6757C5.23103 47.7889 7.82854 50.3692 10.9537 52.155L13.847 47.0888C11.616 45.8137 9.76145 43.9717 8.47126 41.7493C7.18106 39.5269 6.50101 37.0031 6.49996 34.4333L0.666626 34.4275ZM4.20163 9.05834C3.15208 9.50826 2.25767 10.2592 1.62929 11.2127C1.0009 12.1662 0.666182 13.2831 0.666626 14.425H6.49996L4.20163 9.05834Z" fill="#8C1111"/>
+							<path d="M32.75 24.1667L21.0833 35.8334L15.25 30" stroke="#8C1111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+					</div>
+					<p class="text-sm md:text-base font-[Golos_Text] font-semibold text-zinc-800">Licensed & Insured</p>
 				</div>
-				Licensed & Insured
-			</div>
-			<div class="flex flex-col text-2xl font-[Golos_Text] items-center">
-				<div data-svg-wrapper class="relative">
-					<svg width="59" height="59" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M31.69 25.85C30.23 25.485 28.77 24.755 27.675 23.66C26.58 23.295 26.215 22.2 26.215 21.47C26.215 20.74 26.58 19.645 27.31 19.28C28.405 18.55 29.5 17.82 30.595 18.185C32.785 18.185 34.61 19.28 35.705 20.74L38.99 16.36C37.8951 15.265 36.8 14.535 35.705 13.805C34.61 13.075 33.15 12.71 31.69 12.71V7.59999H27.31V12.71C25.485 13.075 23.66 14.17 22.2 15.63C20.74 17.455 19.645 19.645 20.01 21.835C20.01 24.025 20.74 26.215 22.2 27.675C24.025 29.5 26.58 30.595 28.77 31.69C29.865 32.055 31.325 32.785 32.42 33.515C33.15 34.245 33.515 35.34 33.515 36.435C33.515 37.53 33.15 38.625 32.42 39.72C31.325 40.815 29.865 41.18 28.77 41.18C27.31 41.18 25.4851 40.815 24.39 39.72C23.295 38.99 22.2 37.895 21.47 36.8L17.82 40.815C18.915 42.275 20.01 43.37 21.47 44.465C23.295 45.56 25.485 46.655 27.675 46.655V51.4H31.69V45.925C33.8801 45.56 35.705 44.465 37.1651 43.005C38.99 41.18 40.085 38.26 40.085 35.705C40.085 33.515 39.355 30.96 37.53 29.5C35.705 27.675 33.8801 26.58 31.69 25.85ZM29.5 0.299988C13.44 0.299988 0.300049 13.44 0.300049 29.5C0.300049 45.56 13.44 58.7 29.5 58.7C45.56 58.7 58.7 45.56 58.7 29.5C58.7 13.44 45.56 0.299988 29.5 0.299988ZM29.5 54.685C15.63 54.685 4.31505 43.37 4.31505 29.5C4.31505 15.63 15.63 4.31499 29.5 4.31499C43.37 4.31499 54.685 15.63 54.685 29.5C54.685 43.37 43.37 54.685 29.5 54.685Z" fill="#8C1111"/>
-					</svg>
-				</div>
-				Upfront Pricing
-			</div>
-			<div class="flex flex-col text-2xl font-[Golos_Text] items-center">
-				<div data-svg-wrapper class="relative">
-					<svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M49.4559 20.75H35.2948L37.2087 11.18C37.4773 9.83919 37.445 8.45547 37.114 7.12867C36.783 5.80187 36.1616 4.56508 35.2948 3.50752C34.4302 2.44814 33.3403 1.59483 32.1044 1.00971C30.8685 0.424585 29.5177 0.122357 28.1503 0.125017C26.3188 0.125017 24.6894 1.35427 24.2274 2.98364L22.3134 8.28839C20.1783 14.2033 17.219 19.7873 13.523 24.875H6.3125C2.90112 24.875 0.125 27.6511 0.125 31.0625V51.6875C0.125 55.0989 2.90112 57.875 6.3125 57.875H43.0126C44.7726 57.8814 46.4881 57.322 47.906 56.2792C49.3238 55.2364 50.369 53.7655 50.8872 52.0835L57.3305 31.4585C57.7233 30.2245 57.8171 28.9148 57.6041 27.6374C57.3911 26.3601 56.8774 25.1516 56.1054 24.1119C55.3431 23.0643 54.3425 22.2131 53.1863 21.6285C52.0301 21.0439 50.7514 20.7428 49.4559 20.75ZM4.25 51.6875V31.0625C4.25 30.5155 4.4673 29.9909 4.85409 29.6041C5.24089 29.2173 5.76549 29 6.3125 29H12.5V53.75H6.3125C5.76549 53.75 5.24089 53.5327 4.85409 53.1459C4.4673 52.7591 4.25 52.2345 4.25 51.6875ZM53.3994 30.2293L46.9561 50.8543C46.694 51.6939 46.1704 52.4277 45.4617 52.9487C44.753 53.4696 43.8963 53.7504 43.0168 53.75H16.6291V27.614C20.661 22.1295 23.8827 16.0932 26.195 9.69089L28.1544 4.25414C29.693 4.25414 31.1367 4.93889 32.1102 6.12689C33.0879 7.31902 33.4756 8.86589 33.1704 10.3715L30.7655 22.4083C30.7056 22.7077 30.713 23.0167 30.7871 23.313C30.8612 23.6092 31.0002 23.8853 31.194 24.1213C31.3877 24.3573 31.6315 24.5474 31.9077 24.6777C32.1838 24.8081 32.4855 24.8754 32.7909 24.875H49.4683C50.7965 24.875 52.0092 25.4855 52.793 26.558C53.5767 27.6305 53.8036 28.9629 53.4076 30.2334L53.3994 30.2293Z" fill="#8C1111"/>
-					</svg>
-				</div>
-				Workmanship Guaranteed
-			</div>
-		</div>
-	</div>
-	<div id="about-us-container" class="flex justify-between w-screen h-auto p-5"> 
-		<div id="about-us-start">
-			<div class="flex m-10"> 
-				<div class="relative flex gap-0 right-5 top-1.5">
-					<div class="relative left-4 top-1"> <CircleIcon width="26" height="26" color="#8c1111" /> </div>
 				
-					<svg class="relative left-0.5 bottom-0.5" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M19.0825 12.0842C18.9781 11.9869 18.8943 11.8696 18.8363 11.7393C18.7782 11.609 18.747 11.4683 18.7445 11.3256C18.7419 11.183 18.7682 11.0413 18.8216 10.909C18.8751 10.7767 18.9546 10.6565 19.0555 10.5556C19.1564 10.4547 19.2766 10.3752 19.4089 10.3217C19.5412 10.2683 19.6829 10.242 19.8255 10.2446C19.9682 10.2471 20.1089 10.2783 20.2392 10.3364C20.3696 10.3944 20.4869 10.4782 20.5841 10.5826L26.2508 16.2492C26.4498 16.4484 26.5615 16.7185 26.5615 17.0001C26.5615 17.2816 26.4498 17.5517 26.2508 17.7509L20.5841 23.4176C20.4869 23.5219 20.3696 23.6057 20.2392 23.6637C20.1089 23.7218 19.9682 23.753 19.8255 23.7556C19.6829 23.7581 19.5412 23.7318 19.4089 23.6784C19.2766 23.625 19.1564 23.5454 19.0555 23.4445C18.9546 23.3436 18.8751 23.2234 18.8216 23.0912C18.7682 22.9588 18.7419 22.8171 18.7445 22.6745C18.747 22.5318 18.7782 22.3911 18.8363 22.2608C18.8943 22.1305 18.9781 22.0132 19.0825 21.9159L22.9358 18.0626H9.20829C8.9265 18.0626 8.65625 17.9506 8.45699 17.7514C8.25773 17.5521 8.14579 17.2818 8.14579 17.0001C8.14579 16.7183 8.25773 16.448 8.45699 16.2488C8.65625 16.0495 8.9265 15.9376 9.20829 15.9376L22.9358 15.9376L19.0825 12.0842Z" fill="#A43B3B"/>
-					</svg>
+				<div class="flex flex-col items-center text-center">
+					<div class="mb-2">
+						<svg width="45" height="45" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M31.69 25.85C30.23 25.485 28.77 24.755 27.675 23.66C26.58 23.295 26.215 22.2 26.215 21.47C26.215 20.74 26.58 19.645 27.31 19.28C28.405 18.55 29.5 17.82 30.595 18.185C32.785 18.185 34.61 19.28 35.705 20.74L38.99 16.36C37.8951 15.265 36.8 14.535 35.705 13.805C34.61 13.075 33.15 12.71 31.69 12.71V7.59999H27.31V12.71C25.485 13.075 23.66 14.17 22.2 15.63C20.74 17.455 19.645 19.645 20.01 21.835C20.01 24.025 20.74 26.215 22.2 27.675C24.025 29.5 26.58 30.595 28.77 31.69C29.865 32.055 31.325 32.785 32.42 33.515C33.15 34.245 33.515 35.34 33.515 36.435C33.515 37.53 33.15 38.625 32.42 39.72C31.325 40.815 29.865 41.18 28.77 41.18C27.31 41.18 25.4851 40.815 24.39 39.72C23.295 38.99 22.2 37.895 21.47 36.8L17.82 40.815C18.915 42.275 20.01 43.37 21.47 44.465C23.295 45.56 25.485 46.655 27.675 46.655V51.4H31.69V45.925C33.8801 45.56 35.705 44.465 37.1651 43.005C38.99 41.18 40.085 38.26 40.085 35.705C40.085 33.515 39.355 30.96 37.53 29.5C35.705 27.675 33.8801 26.58 31.69 25.85ZM29.5 0.299988C13.44 0.299988 0.300049 13.44 0.300049 29.5C0.300049 45.56 13.44 58.7 29.5 58.7C45.56 58.7 58.7 45.56 58.7 29.5C58.7 13.44 45.56 0.299988 29.5 0.299988ZM29.5 54.685C15.63 54.685 4.31505 43.37 4.31505 29.5C4.31505 15.63 15.63 4.31499 29.5 4.31499C43.37 4.31499 54.685 15.63 54.685 29.5C54.685 43.37 43.37 54.685 29.5 54.685Z" fill="#8C1111"/>
+						</svg>
+					</div>
+					<p class="text-sm md:text-base font-[Golos_Text] font-semibold text-zinc-800">Upfront Pricing</p>
 				</div>
-				<span class="relative text-2xl text-red-800 font-semibold font-[Golos_Text] top-1 right-5"> About Us </span>
-				<ReviewStar />
-				<ReviewStar />
-				<ReviewStar />
-				<ReviewStar />
-				<ReviewStar />
-				<div class="relative bg-white w-[30px] h-[30px] top-1.5 right-5"></div>
-			</div>
-			<span class="block text-5xl font-semibold font-[Inter] m-10"> Commitment </br> towards excellence </span>
-			<div class="m-10">
-				<Image src={ ManFixingPipe } alt="man fixing pipe" class="block w-[330px] h-[300px] rounded-md my-10" />
-				<div class="relative bg-white text-[#440c0c] text-center rounded-tr-2xl w-[100px] h-[80px] bottom-29 pt-1"> 
-					<span class="text-4xl font-semibold"> 38 </span> 
-					</br> 
-					YEARS 
+				
+				<div class="flex flex-col items-center text-center">
+					<div class="mb-2">
+						<svg width="44" height="44" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M49.4559 20.75H35.2948L37.2087 11.18C37.4773 9.83919 37.445 8.45547 37.114 7.12867C36.783 5.80187 36.1616 4.56508 35.2948 3.50752C34.4302 2.44814 33.3403 1.59483 32.1044 1.00971C30.8685 0.424585 29.5177 0.122357 28.1503 0.125017C26.3188 0.125017 24.6894 1.35427 24.2274 2.98364L22.3134 8.28839C20.1783 14.2033 17.219 19.7873 13.523 24.875H6.3125C2.90112 24.875 0.125 27.6511 0.125 31.0625V51.6875C0.125 55.0989 2.90112 57.875 6.3125 57.875H43.0126C44.7726 57.8814 46.4881 57.322 47.906 56.2792C49.3238 55.2364 50.369 53.7655 50.8872 52.0835L57.3305 31.4585C57.7233 30.2245 57.8171 28.9148 57.6041 27.6374C57.3911 26.3601 56.8774 25.1516 56.1054 24.1119C55.3431 23.0643 54.3425 22.2131 53.1863 21.6285C52.0301 21.0439 50.7514 20.7428 49.4559 20.75ZM4.25 51.6875V31.0625C4.25 30.5155 4.4673 29.9909 4.85409 29.6041C5.24089 29.2173 5.76549 29 6.3125 29H12.5V53.75H6.3125C5.76549 53.75 5.24089 53.5327 4.85409 53.1459C4.4673 52.7591 4.25 52.2345 4.25 51.6875ZM53.3994 30.2293L46.9561 50.8543C46.694 51.6939 46.1704 52.4277 45.4617 52.9487C44.753 53.4696 43.8963 53.7504 43.0168 53.75H16.6291V27.614C20.661 22.1295 23.8827 16.0932 26.195 9.69089L28.1544 4.25414C29.693 4.25414 31.1367 4.93889 32.1102 6.12689C33.0879 7.31902 33.4756 8.86589 33.1704 10.3715L30.7655 22.4083C30.7056 22.7077 30.713 23.0167 30.7871 23.313C30.8612 23.6092 31.0002 23.8853 31.194 24.1213C31.3877 24.3573 31.6315 24.5474 31.9077 24.6777C32.1838 24.8081 32.4855 24.8754 32.7909 24.875H49.4683C50.7965 24.875 52.0092 25.4855 52.793 26.558C53.5767 27.6305 53.8036 28.9629 53.4076 30.2334L53.3994 30.2293Z" fill="#8C1111"/>
+						</svg>
+					</div>
+					<p class="text-sm md:text-base font-[Golos_Text] font-semibold text-zinc-800">Workmanship Guaranteed</p>
 				</div>
-			</div>
-		</div>
-		<div id="about-us-end" class="flex flex-col justify-center items-center w-[50%]">
-			<span class="text-red-800 text-4xl font-[Inter] italic"> We get the job done. </span>
-			<div>
-				<Image class="rounded-lg mt-10" src={ PlumberTeamRed } alt="team of plumbers wearing red" />
-				<div class="relative bg-white text-[#440c0c] text-center rounded-tr-2xl w-[100px] h-[80px] bottom-20 pt-1">
-					<span class="text-4xl font-semibold font-[MuseoModerno]"> 45+ </span>
-					</br>
-					<span class="font-[Golos_Text]"> REVIEWS </span>
-				</div>
-			</div>
-			<span class="text-[12px] text-center font-[Golos_Text] mb-10">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-				sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-				Ut enim ad minim veniam.
-			</span>
-			<div class="grid grid-cols-2 gap-5">
-				<div class="flex"> <CircleIcon width="20" height="20" color="#c52121"/> <Image class="relative right-4.75 bottom-0.75 w-3" src={ CheckMarkIcon } alt="check mark icon" /> <span class="relative text-[#5e1818] text-[12px] font-semibold font-[Golos_Text] right-4 bottom-0.75"> Locally owned and operated </span> </div>
-				<div class="flex"> <CircleIcon width="20" height="20" color="#c52121"/> <Image class="relative right-4.75 bottom-0.75 w-3" src={ CheckMarkIcon } alt="check mark icon" /> <span class="relative text-[#5e1818] text-[12px] font-semibold font-[Golos_Text] right-4 bottom-0.75"> Always here for you </span> </div>
-				<div class="flex"> <CircleIcon width="20" height="20" color="#c52121"/> <Image class="relative right-4.75 bottom-0.75 w-3" src={ CheckMarkIcon } alt="check mark icon" /> <span class="relative text-[#5e1818] text-[12px] font-semibold font-[Golos_Text] right-4 bottom-0.75"> Problem solvers </span> </div>
-				<div class="flex"> <CircleIcon width="20" height="20" color="#c52121"/> <Image class="relative right-4.75 bottom-0.75 w-3" src={ CheckMarkIcon } alt="check mark icon" /> <span class="relative text-[#5e1818] text-[12px] font-semibold font-[Golos_Text] right-4 bottom-0.75"> Certified professionals </span> </div>
 			</div>
 		</div>
 	</div>
-	<div id="service-list" class="flex flex-col items-center justify-center bg-[#f7f9fb]">
-		<div class="text-3xl font-medium font-[Inter] text-center w-max h-max mt-5"> For anything you might need </div>
-		<div class="flex justify-center">
-			<div class="w-[60%] h-[60%] m-10">
-				<Image class="rounded-md" src={ BathTub } alt="bathtub up close" />
-				<div class="relative bottom-21 left-6"> 
-					<div class="relative top-2 z-10"> 
-						<CircleIcon width="25" height="25" color="#c52121"/>
-						<Image class="absolute w-4 bottom-1.5 left-0.5" src={ BathtubIcon } alt="bathtub icon" />
-					</div> 
-					<div class="relative text-[12px] font-semibold font-[Libre_Franklin] bg-white rounded-md w-[75%] h-max p-2"> Bathtub Installation and Repair </div>
-				</div>
+
+	<!-- Why Choose Us Section -->
+	<div id="why-choose-us" class="bg-white w-full py-12 md:py-16"> 
+		<div class="max-w-7xl mx-auto px-4">
+			<div class="text-center mb-10">
+				<h2 class="text-3xl md:text-4xl font-semibold font-[Inter] text-zinc-900 mb-3">Why Choose Big Branch Plumbing?</h2>
+				<p class="text-zinc-600 font-[Golos_Text] text-lg">Your trusted Northshore plumbing experts since 1986</p>
 			</div>
-			<div class="w-[60%] h-[60%] m-10">
-				<Image class="rounded-md" src={ SinkDrain } alt="drain" />
-				<div class="relative bottom-21 left-6">
-					<div class="relative top-2 z-10"> 
-						<CircleIcon width="25" height="25" color="#c52121"/>
-						<Image class="absolute w-3 bottom-1.5 left-1" src={ DropletIcon } alt="water droplet icon" /> 
+			
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+				<div class="bg-[#f7f9fb] rounded-xl p-6 shadow-sm flex flex-col h-full">
+					<div class="flex items-center gap-3 mb-4">
+						<CircleIcon width="28" height="28" color="#8c1111" />
+						<h3 class="text-xl font-semibold font-[Inter] text-zinc-900">38+ Years Experience</h3>
 					</div>
-					<div class="relative text-[12px] font-semibold font-[Libre_Franklin] bg-white rounded-md w-[75%] h-max p-2"> Drain Installation and Repair </div>
+					<Image 
+						src={ ManFixingPipe } 
+						alt="Experienced plumber fixing pipes" 
+						class="w-full h-48 object-cover rounded-lg mb-4"
+					/>
+					<p class="text-zinc-700 font-[Golos_Text] leading-relaxed flex-grow">
+						With nearly four decades serving the Northshore area, we've seen it all. 
+						From simple repairs to complex installations, our experience means your plumbing 
+						problems get solved right the first time.
+					</p>
 				</div>
-			</div>
-			<div class="w-[60%] h-[60%] m-10">
-				<Image class="rounded-md" src={ WallPipe } alt="wall pipes" />
-				<div class="relative bottom-21 left-6">
-					<div class="relative top-2 z-10"> 
-						<CircleIcon width="25" height="25" color="#c52121"/> 
-						<Image class="absolute w-3 bottom-2 left-1" src={ PipeIcon } alt="pipe icon" />
+				
+				<div class="bg-[#f7f9fb] rounded-xl p-6 shadow-sm flex flex-col h-full">
+					<div class="flex items-center gap-3 mb-4">
+						<CircleIcon width="28" height="28" color="#8c1111" />
+						<h3 class="text-xl font-semibold font-[Inter] text-zinc-900">Local Northshore Experts</h3>
 					</div>
-					<div class="relative text-[12px] text-center font-semibold font-[Libre_Franklin] bg-white rounded-md w-[75%] h-max p-2"> Plumbing Inspection </div>
+					<Image 
+						src={ PlumberTeamRed } 
+						alt="Professional plumbing team" 
+						class="w-full h-48 object-cover rounded-lg mb-4"
+					/>
+					<p class="text-zinc-700 font-[Golos_Text] leading-relaxed flex-grow">
+						We know the Northshore. From Hammond's historic homes to Mandeville's modern developments, 
+						we understand local plumbing systems, water pressure issues, and common problems specific 
+						to our Louisiana climate.
+					</p>
 				</div>
 			</div>
-		</div>
-		<div class="relative bottom-15 w-max h-max"> 
-			<a href="/services/"> <button class="bg-[#8c1111] text-white text-[12px] rounded-lg py-2 px-4 cursor-pointer" type="button"> All Services → </button> </a> 
-			<svg class="relative bottom-3.5 left-0.5" width="24" height="10" viewBox="0 0 71 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<path d="M70 34C68.3736 34 55.8796 34 37.4057 33.9045C24.052 33.8354 16.6236 28.9863 12.6561 26.2016C4.38279 20.3947 2.93857 12.8221 1.6859 7.95895C1.55036 7.18316 1.27929 6.41895 1.13965 5.26105C1.00001 4.10316 1 2.57474 1 1" stroke="#F2F2F2" stroke-width="4" stroke-linecap="round"/>
-			</svg>
+
+			<!-- Customer Benefits Grid -->
+			<div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+				<div class="flex items-start gap-3 bg-white p-4 rounded-lg border border-gray-100">
+					<Check size={20} color="#8c1111" class="flex-shrink-0 mt-0.5" />
+					<span class="text-sm font-semibold font-[Golos_Text] text-zinc-800 leading-tight">Locally owned & operated</span>
+				</div>
+				<div class="flex items-start gap-3 bg-white p-4 rounded-lg border border-gray-100">
+					<Check size={20} color="#8c1111" class="flex-shrink-0 mt-0.5" />
+					<span class="text-sm font-semibold font-[Golos_Text] text-zinc-800 leading-tight">24/7 emergency availability</span>
+				</div>
+				<div class="flex items-start gap-3 bg-white p-4 rounded-lg border border-gray-100">
+					<Check size={20} color="#8c1111" class="flex-shrink-0 mt-0.5" />
+					<span class="text-sm font-semibold font-[Golos_Text] text-zinc-800 leading-tight">Free estimates on major work</span>
+				</div>
+				<div class="flex items-start gap-3 bg-white p-4 rounded-lg border border-gray-100">
+					<Check size={20} color="#8c1111" class="flex-shrink-0 mt-0.5" />
+					<span class="text-sm font-semibold font-[Golos_Text] text-zinc-800 leading-tight">Licensed & insured professionals</span>
+				</div>
+			</div>
 		</div>
 	</div>
-	<!-- <div id="latest-blogs" class="p-5">
-		<div class="relative flex justify-center right-14 top-10">
-			<CircleIcon width="20" height="20" color="#c52121" />
-			<span class="relative text-[12px] bottom-0.5"> Real Plumbing Insight </span>
+
+	<!-- Services Preview Section -->
+	<div id="service-list" class="bg-[#f7f9fb] w-full py-12 md:py-16">
+		<div class="max-w-7xl mx-auto px-4">
+			<div class="text-center mb-10">
+				<h2 class="text-3xl md:text-4xl font-semibold font-[Inter] text-zinc-900 mb-3">Our Plumbing Services</h2>
+				<p class="text-zinc-600 font-[Golos_Text] text-lg">Comprehensive plumbing solutions for residential and commercial customers</p>
+			</div>
+			
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+				<!-- Bathtub Service -->
+				<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+					<div class="relative">
+						<Image 
+							class="w-full h-48 object-cover" 
+							src={ BathTub } 
+							alt="Bathtub installation and repair services" 
+						/>
+						<div class="absolute top-3 left-3">
+							<Wrench size={28} color="#c52121" class="bg-white rounded-full p-1.5 shadow-md" />
+						</div>
+					</div>
+					<div class="p-5">
+						<h3 class="text-lg font-semibold font-[Libre_Franklin] text-zinc-900 mb-2">Bathtub Installation & Repair</h3>
+						<p class="text-sm text-zinc-600 font-[Golos_Text] mb-4">
+							Professional bathtub installation, replacement, and repair services. 
+							We handle everything from leaks to complete renovations.
+						</p>
+						<a href="/contact/" class="text-red-800 font-semibold text-sm hover:underline">Get a quote →</a>
+					</div>
+				</div>
+
+				<!-- Drain Service -->
+				<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+					<div class="relative">
+						<Image 
+							class="w-full h-48 object-cover" 
+							src={ SinkDrain } 
+							alt="Drain cleaning and repair services" 
+						/>
+						<div class="absolute top-3 left-3">
+							<Droplet size={28} color="#c52121" class="bg-white rounded-full p-1.5 shadow-md" />
+						</div>
+					</div>
+					<div class="p-5">
+						<h3 class="text-lg font-semibold font-[Libre_Franklin] text-zinc-900 mb-2">Drain Cleaning & Repair</h3>
+						<p class="text-sm text-zinc-600 font-[Golos_Text] mb-4">
+							Fast, effective drain cleaning for clogged sinks, showers, and main lines. 
+							We use professional equipment for lasting results.
+						</p>
+						<a href="/contact/" class="text-red-800 font-semibold text-sm hover:underline">Get a quote →</a>
+					</div>
+				</div>
+
+				<!-- Plumbing Inspection -->
+				<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+					<div class="relative">
+						<Image 
+							class="w-full h-48 object-cover" 
+							src={ WallPipe } 
+							alt="Plumbing inspection services" 
+						/>
+						<div class="absolute top-3 left-3">
+							<Pipe size={28} color="#c52121" class="bg-white rounded-full p-1.5 shadow-md" />
+						</div>
+					</div>
+					<div class="p-5">
+						<h3 class="text-lg font-semibold font-[Libre_Franklin] text-zinc-900 mb-2">Plumbing Inspections</h3>
+						<p class="text-sm text-zinc-600 font-[Golos_Text] mb-4">
+							Comprehensive plumbing inspections for home buyers, sellers, or routine maintenance. 
+							Identify problems before they become expensive disasters.
+						</p>
+						<a href="/contact/" class="text-red-800 font-semibold text-sm hover:underline">Get a quote →</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="text-center mt-10">
+				<a href="/services/" class="inline-block bg-red-800 text-white font-semibold font-[Golos_Text] px-6 py-3 rounded-lg hover:bg-red-900 transition-colors">
+					View All Services →
+				</a>
+			</div>
 		</div>
-		<div class="relative text-2xl font-semibold justify-self-center top-10">
-			Explore our latest blog
+	</div>
+
+	<!-- Service Area Section -->
+	<div id="service-area" class="bg-white w-full py-12 md:py-16">
+		<div class="max-w-7xl mx-auto px-4 text-center">
+			<h2 class="text-3xl md:text-4xl font-semibold font-[Inter] text-zinc-900 mb-4">Serving the Entire Northshore</h2>
+			<p class="text-zinc-600 font-[Golos_Text] text-lg mb-6 max-w-3xl mx-auto">
+				We proudly provide plumbing services throughout Louisiana's Northshore region
+			</p>
+			<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 max-w-4xl mx-auto">
+				{[
+					'Hammond', 'Ponchatoula', 'Mandeville', 'Covington', 
+					'Madisonville', 'Slidell', 'Abita Springs', 'Lacombe', 
+					'Pearl River', 'Folsom', 'Loranger', 'Amite City', 
+					'Tickfaw', 'Independence'
+				].map(city => (
+					<div class="bg-[#f7f9fb] px-3 py-2 rounded-lg text-sm font-semibold font-[Golos_Text] text-zinc-700">
+						{city}
+					</div>
+				))}
+			</div>
+			<p class="text-sm text-zinc-500 font-[Golos_Text] mt-6">
+				Don't see your area listed? We likely service your location. Call us to confirm!
+			</p>
 		</div>
-		<div class="grid grid-cols-2 gap-10"> 
-			{ mostRecentPosts.map((post: any) => mostRecentPosts.map((post: any) =>  <LatestBlog blogCover={ post.data.cover } 
-                                                            blogCoverAlt={ post.data.coverAlt } 
-                                                            blogTitle={ post.data.title } 
-                                                            blogDate={ post.data.pubDate.toDateString() } 
-                                                            blogDay={ post.data.pubDate.getDate() } 
-                                                            blogMonth={ months[post.data.pubDate.getMonth()] } 
-                                                            blogYear={ post.data.pubDate.getFullYear() }
-                                                            blogUrl={ post.id } />  ) 
-            
-            }
+	</div>
+
+	<!-- Testimonials Section -->
+	<div id="testimonials" class="bg-[#f7f9fb] w-full py-12 md:py-16">
+		<div class="max-w-7xl mx-auto px-4">
+			<div class="text-center mb-10">
+				<h2 class="text-3xl md:text-4xl font-semibold font-[Inter] text-zinc-900 mb-3">What Our Customers Say</h2>
+				<p class="text-zinc-600 font-[Golos_Text] text-lg">Real reviews from satisfied Northshore homeowners</p>
+			</div>
+			
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+				<div class="bg-white p-6 rounded-xl shadow-md">
+					<div class="flex mb-3">
+						{[1,2,3,4,5].map(() => (
+							<svg width="16" height="16" viewBox="0 0 20 20" fill="#fbbf24" class="mr-1">
+								<path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+							</svg>
+						))}
+					</div>
+					<p class="text-zinc-700 font-[Golos_Text] mb-4 italic">
+						"Fast response time and fixed our water heater the same day. Professional, honest pricing. 
+						Will definitely use them again!"
+					</p>
+					<p class="text-sm font-semibold font-[Golos_Text] text-zinc-900">- Sarah M., Mandeville</p>
+				</div>
+
+				<div class="bg-white p-6 rounded-xl shadow-md">
+					<div class="flex mb-3">
+						{[1,2,3,4,5].map(() => (
+							<svg width="16" height="16" viewBox="0 0 20 20" fill="#fbbf24" class="mr-1">
+								<path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+							</svg>
+						))}
+					</div>
+					<p class="text-zinc-700 font-[Golos_Text] mb-4 italic">
+						"Big Branch Plumbing saved us from a major flood. They arrived within an hour and 
+						worked efficiently to fix the problem. Highly recommended!"
+					</p>
+					<p class="text-sm font-semibold font-[Golos_Text] text-zinc-900">- Mike T., Covington</p>
+				</div>
+
+				<div class="bg-white p-6 rounded-xl shadow-md">
+					<div class="flex mb-3">
+						{[1,2,3,4,5].map(() => (
+							<svg width="16" height="16" viewBox="0 0 20 20" fill="#fbbf24" class="mr-1">
+								<path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+							</svg>
+						))}
+					</div>
+					<p class="text-zinc-700 font-[Golos_Text] mb-4 italic">
+						"Excellent service at fair prices. The plumber was knowledgeable, clean, and 
+						took time to explain everything. Five stars!"
+					</p>
+					<p class="text-sm font-semibold font-[Golos_Text] text-zinc-900">- Jennifer L., Hammond</p>
+				</div>
+			</div>
+
+			<div class="text-center mt-10">
+				<a href="/contact/" class="inline-block bg-red-800 text-white font-semibold font-[Golos_Text] px-8 py-3 rounded-lg hover:bg-red-900 transition-colors text-lg">
+					Request Service Today
+				</a>
+			</div>
 		</div>
-		<div class="relative justify-self-center bottom-10"> 
-			<a href="/blogs/"> <button class="bg-[#c52121] rounded-[28px] px-5 py-2 cursor-pointer"> See All Tips </button> </a> 
-			<svg class="relative bottom-3 left-1.5" width="28" height="10" viewBox="10 10 70 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<path d="M70 34C68.3736 34 55.8796 34 37.4057 33.9045C24.052 33.8354 16.6236 28.9863 12.6561 26.2016C4.38279 20.3947 2.93857 12.8221 1.6859 7.95895C1.55036 7.18316 1.27929 6.41895 1.13965 5.26105C1.00001 4.10316 1 2.57474 1 1" stroke="#F2F2F2" stroke-width="4" stroke-linecap="round"/>
-			</svg>
-		</div>
-	</div> -->
+	</div>
+
 </Layout>

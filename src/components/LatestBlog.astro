@@ -1,27 +1,47 @@
 ---
-import Image from "astro/components/Image.astro";
+import { Image } from 'astro:assets';
 import CalendarIcon from '../assets/calendar-icon.svg';
 
 const {  blogCover, blogCoverAlt, blogTitle, blogDate, blogDay, blogMonth, blogYear, blogUrl } = Astro.props;
 ---
 
-
-<div class="flex flex-col justify-center items-center rounded-lg">
-    <div class="w-full h-full"> 
-        <div class="relative text-center bg-[#c52121] rounded-lg top-25 left-5 w-max h-max">
-            <span class="text-2xl font-normal font-[MuseoModerno]"> { blogDay } </span> 
-            <br> 
-            <span class="text-[12px] font-normal font-[Golos_Text]"> { blogMonth } </span>
-            <div class="relative bg-white text-[12px] text-center font-normal font-[Golos_Text] rounded-bl-lg rounded-br-lg w-full px-2 py-0.5"> { blogYear } </div> 
-        </div> 
-        <Image class="rounded-lg min-w-[100%]" src={ blogCover } alt={ blogCoverAlt } />
-    </div>
-    <div class="relative bg-[#8c1111] px-10 py-5 max-w-[90%] h-max rounded-lg bottom-15">
-        <div class="flex items-center justify-between">
-            <div> <Image src={ CalendarIcon } alt="calendar icon" /></div>
-            <div class="relative text-white text-[12px] font-normal font-[Golos_Text]"> { blogDate } | Plumbing Services </div>
+<a href={ '/posts/' + blogUrl } class="block group">
+    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow h-full flex flex-col">
+        <!-- Date Badge -->
+        <div class="relative">
+            <div class="absolute top-3 left-3 bg-red-800 text-white rounded-lg p-2 text-center min-w-[60px] z-10 shadow-md">
+                <div class="text-xl font-bold font-[MuseoModerno] leading-none">{blogDay}</div>
+                <div class="text-xs font-semibold font-[Golos_Text] leading-tight">{blogMonth}</div>
+                <div class="text-[10px] font-[Golos_Text] leading-tight opacity-90">{blogYear}</div>
+            </div>
+            <Image 
+                class="w-full h-48 object-cover group-hover:opacity-90 transition-opacity" 
+                src={ blogCover } 
+                alt={ blogCoverAlt } 
+            />
         </div>
-        <div class="relative text-white font-semibold font-[Libre_Franklin] max-w-[20pc] my-5 left-2"> { blogTitle } </div>
-        <div class="my-2"> <a href={ '/posts/' + blogUrl }> <button class="bg-[#c52121] rounded-[28px] font-medium font-[Libre_Franklin] px-5 py-2 cursor-pointer"> Read More </button> </a> </div>
+        
+        <!-- Content -->
+        <div class="p-4 flex-grow flex flex-col">
+            <div class="flex items-center gap-2 text-xs text-zinc-500 font-[Golos_Text] mb-2">
+                <Image src={ CalendarIcon } alt="calendar icon" class="w-3 h-3" />
+                <span>{blogDate}</span>
+                <span>•</span>
+                <span>Plumbing Tips</span>
+            </div>
+            
+            <h3 class="text-lg font-semibold font-[Libre_Franklin] text-zinc-900 mb-3 leading-tight flex-grow">
+                {blogTitle}
+            </h3>
+            
+            <div class="mt-auto">
+                <span class="inline-flex items-center gap-2 text-red-800 font-semibold text-sm font-[Golos_Text] group-hover:gap-3 transition-all">
+                    Read More
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z" fill="#8c1111"/>
+                    </svg>
+                </span>
+            </div>
+        </div>
     </div>
-</div>
+</a>

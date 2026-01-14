@@ -1,16 +1,38 @@
 ---
 title: 'Drainage Services'
 description: 'Fast, reliable drain cleaning to clear clogs and keep water flowing.'
-image: './man-fixing-pipe-2.png'
-imageAlt: 'Man fixing pipes'
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae dui ultrices, feugiat neque id, pulvinar ligula. Nam et lorem vitae lectus condimentum feugiat vulputate nec sapien. Suspendisse nec accumsan purus. Cras et gravida tortor, nec mollis ipsum. Vivamus a justo dolor. Integer a ligula nisi. Cras at lacinia velit. Curabitur eu ligula arcu.
+# Professional Drainage Services
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae dui ultrices, feugiat neque id, pulvinar ligula. Nam et lorem vitae lectus condimentum feugiat vulputate nec sapien. 
+When your drains are slow, clogged, or completely blocked, you need fast, professional help. Big Branch Plumbing provides expert drain cleaning services throughout the Northshore area. With 38+ years of experience, we have the tools and expertise to handle any drainage problem.
 
-**Remedies**
+## What's Included
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae dui ultrices, feugiat neque id, pulvinar ligula. Nam et lorem vitae lectus condimentum feugiat vulputate nec sapien. Suspendisse nec accumsan purus. Cras et gravida tortor, nec mollis ipsum. Vivamus a justo dolor. Integer a ligula nisi. Cras at lacinia velit. Curabitur eu ligula arcu.
+**Our drainage services include:**
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae dui ultrices, feugiat neque id, pulvinar ligula. 
+- **Clog Removal** - We clear stubborn clogs from sinks, showers, tubs, and toilets using professional-grade equipment
+- **Main Sewer Line Cleaning** - Blockages in your main sewer line can cause backups throughout your home
+- **Drain Inspection** - Video camera technology to identify the exact cause and location of problems
+- **Preventative Maintenance** - Regular cleaning prevents major clogs and extends pipe life
+- **Hydro-Jetting** - Advanced technology that thoroughly cleans your entire sewer system
+
+## Common Drain Problems
+
+- Slow-draining sinks and showers
+- Complete drain blockages
+- Gurgling sounds from drains
+- Sewer backups
+- Foul odors from drains
+- Multiple clogged fixtures
+- Tree root intrusion
+
+## Why Choose Us
+
+**Fast Response** - Same-day service for most drain issues  
+**Advanced Equipment** - Latest drain cleaning technology including hydro-jetting  
+**Experienced Technicians** - Licensed plumbers with decades of experience  
+**Upfront Pricing** - Clear estimates before any work begins  
+**Guaranteed Work** - All services backed by our workmanship guarantee
+
+**Don't let drain problems disrupt your day. Call Big Branch Plumbing at (985) 626-5711 for fast, reliable service.**

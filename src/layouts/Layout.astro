@@ -1,32 +1,171 @@
 ---
-import '../styles/global.css';
-import FooterBackdrop from '../components/FooterBackdrop.astro';
-import CompanyHeader from '../components/CompanyHeader.astro';
-import Navigation from '../components/Navigation.astro';
+import "../styles/global.css";
+import FooterBackdrop from "../components/FooterBackdrop.astro";
+import CompanyHeader from "../components/CompanyHeader.astro";
+import Navigation from "../components/Navigation.astro";
 
+const { title, description, keywords } = Astro.props;
+const defaultTitle =
+  "Big Branch Plumbing | Licensed Northshore Plumber | (985) 626-5711";
+const defaultDescription =
+  "Big Branch Plumbing provides reliable, licensed plumbing services across the Northshore area including Hammond, Ponchatoula, Mandeville, Covington, and surrounding communities. Call (985) 626-5711 for upfront pricing.";
+const defaultKeywords =
+  "plumber Northshore, plumbing services Hammond, Mandeville plumber, Covington plumbing, emergency plumber, drain cleaning, water heater repair, licensed plumber Louisiana";
 ---
 
-
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Big Branch Plumbing</title>
-	</head>
-	<body>
-		<div class="flex justify-between">
-			<CompanyHeader />
-			<Navigation />
-		</div>
-        <slot />
-		<FooterBackdrop />
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
+    <title>{title || defaultTitle}</title>
+    <meta name="description" content={description || defaultDescription} />
+    <meta name="keywords" content={keywords || defaultKeywords} />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:title" content={title || defaultTitle} />
+    <meta
+      property="og:description"
+      content={description || defaultDescription}
+    />
+    <meta property="og:image" content="/favicon.svg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={Astro.url.href} />
+    <meta name="twitter:title" content={title || defaultTitle} />
+    <meta
+      name="twitter:description"
+      content={description || defaultDescription}
+    />
+    <meta name="twitter:image" content="/favicon.svg" />
+
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Plumber",
+        "name": "Big Branch Plumbing",
+        "image": "/favicon.svg",
+        "@id": "https://bigbranchplumbing.com",
+        "url": "https://bigbranchplumbing.com",
+        "telephone": "(985) 626-5711",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "LA",
+          "addressCountry": "US"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Hammond"
+          },
+          {
+            "@type": "City",
+            "name": "Ponchatoula"
+          },
+          {
+            "@type": "City",
+            "name": "Mandeville"
+          },
+          {
+            "@type": "City",
+            "name": "Covington"
+          },
+          {
+            "@type": "City",
+            "name": "Madisonville"
+          },
+          {
+            "@type": "City",
+            "name": "Slidell"
+          },
+          {
+            "@type": "City",
+            "name": "Abita Springs"
+          },
+          {
+            "@type": "City",
+            "name": "Lacombe"
+          },
+          {
+            "@type": "City",
+            "name": "Pearl River"
+          },
+          {
+            "@type": "City",
+            "name": "Folsom"
+          },
+          {
+            "@type": "City",
+            "name": "Loranger"
+          },
+          {
+            "@type": "City",
+            "name": "Amite City"
+          },
+          {
+            "@type": "City",
+            "name": "Tickfaw"
+          },
+          {
+            "@type": "City",
+            "name": "Independence"
+          }
+        ],
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "07:00",
+          "closes": "19:00"
+        },
+        "sameAs": []
+      }
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+      <div
+        class="max-w-7xl mx-auto flex md:flex-row justify-between items-center px-4 py-3"
+      >
+        <CompanyHeader />
+        <Navigation />
+      </div>
+    </header>
+    <main class="flex-grow">
+      <slot />
+    </main>
+    <FooterBackdrop />
+  </body>
 </html>

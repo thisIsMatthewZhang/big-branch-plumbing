@@ -1,70 +1,194 @@
 ---
 import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
+
+const metaTitle = "Contact Big Branch Plumbing | Northshore Plumber | (985) 626-5711";
+const metaDescription = "Contact Big Branch Plumbing for reliable plumbing services in the Northshore area. Call (985) 626-5711 or fill out our contact form for a free quote.";
 ---
 
-<Layout>
-    <div id="contact-page-container" class="bg-[#fef4f4] w-screen h-auto">
-        <div class="flex flex-col justify-center items-center bg-[#c52121] rounded-md w-auto h-auto py-5 my-5">
-            <button type="button" class="text-[#c52121] text-center font-medium font-[Golos_Text] bg-white rounded-md w-auto h-auto p-[5px_18px] cursor-pointer">
-                Book Now
-            </button>
-            <span class="text-3xl text-white font-medium font-[Inter]"> Get a free quote today </span>
+<Layout title={metaTitle} description={metaDescription}>
+    <div id="contact-page-container" class="w-full">
+        
+        <!-- Hero Banner -->
+        <div class="bg-red-800 w-full py-10 md:py-12">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <span class="text-white font-[Golos_Text] font-semibold text-sm uppercase tracking-wide mb-2 block">
+                    Ready to Help
+                </span>
+                <h1 class="text-3xl md:text-4xl text-white font-medium font-[Inter] mb-3">
+                    Get Your Free Quote Today
+                </h1>
+                <p class="text-red-100 font-[Golos_Text] text-base md:text-lg mb-6">
+                    No obligation, no pressure - just honest plumbing advice
+                </p>
+                <a href="tel:(985)-626-5711" class="inline-block bg-white text-red-800 font-semibold font-[Golos_Text] px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                    Call (985) 626-5711
+                </a>
+            </div>
         </div>
-        <div class="flex justify-around">
-            <div id="contact-start" class="flex flex-col my-8">
-                <span class="text-3xl font-medium font-[Golos_Text]"> Contact Us </span>
-                <span class="text-[12px] font-[Golos_Text] font-semibold text-[#63656a]"> Get in touch with us by using the inquiry form or </br> the contact details below </span>
-                </br>
-                <span class="text-[12px] font-[Golos_Text] font-semibold text-[#63656a]"> bigbranchplumbing@gmail.com </span>
-                </br>
-                <span class="text-[12px] font-[Golos_Text] font-semibold text-[#63656a]"> (985) 626-5711 </span>
-                </br>
-                <span class="text-[12px] font-[Golos_Text] font-semibold text-[#63656a]"> 21357 Marion Ln, Mandeville, LA 70471 </span>
-                </br>
-                <div class="flex">
+
+        <!-- Main Contact Section -->
+        <div class="max-w-7xl mx-auto px-4 py-12 md:py-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Contact Info -->
+                <div class="space-y-6">
                     <div>
-                        <span class="text-[12px] font-semibold font-[Golos_Text] block underline text-[#63656a]"> Common Problems </span>
-                        <span class="text-[12px] font-medium font-[Golos_Text] block text-[#63656a] w-[20ch]">  Check out our blog for common plumbing issues and easy fixes. </span>
+                        <h2 class="text-3xl font-semibold font-[Inter] text-zinc-900 mb-3">Contact Us</h2>
+                        <p class="text-zinc-600 font-[Golos_Text] leading-relaxed">
+                            Have questions or ready to schedule service? We're here to help. 
+                            Reach out using the form or contact us directly by phone or email.
+                        </p>
                     </div>
-                    <div>
-                        <span class="text-[12px] font-semibold font-[Golos_Text] block underline text-[#63656a]"> Career Inquiries </span>
-                        <span class="text-[12px] font-medium font-[Golos_Text] block text-[#63656a] w-[20ch]">  Contact us with any career inquiries or questions. </span>
+
+                    <!-- Direct Contact Info -->
+                    <div class="bg-[#f7f9fb] rounded-xl p-6 space-y-4">
+                        <div class="flex items-start gap-3">
+                            <svg width="20" height="20" viewBox="0 0 30 27.5" fill="none" xmlns="http://www.w3.org/2000/svg" class="mt-1 flex-shrink-0">
+                                <path d="M30.25 8.25C30.25 6.7375 29.0125 5.5 27.5 5.5H5.5C3.9875 5.5 2.75 6.7375 2.75 8.25V24.75C2.75 26.2625 3.9875 27.5 5.5 27.5H27.5C29.0125 27.5 30.25 26.2625 30.25 24.75V8.25ZM27.5 8.25L16.5 15.125L5.5 8.25H27.5ZM27.5 24.75H5.5V11L16.5 17.875L27.5 11V24.75Z" fill="#8c1111"/>
+                            </svg>
+                            <div>
+                                <span class="block text-sm font-semibold font-[Golos_Text] text-zinc-900">Email</span>
+                                <a href="mailto:bigbranchplumbing@gmail.com" class="text-red-800 font-[Golos_Text] hover:underline">
+                                    bigbranchplumbing@gmail.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <svg width="20" height="20" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg" class="mt-1 flex-shrink-0">
+                                <path d="M8.85683 0.871252C10.8566 2.3295 12.3702 4.37834 13.6591 6.26092L14.6692 7.74609C14.9829 8.20456 15.1265 8.75828 15.075 9.31141C15.0235 9.86454 14.7803 10.3823 14.3874 10.775L12.2404 12.922L12.4668 13.4033C13.021 14.5259 13.9773 16.1425 15.4166 17.5833C16.412 18.5603 17.5321 19.4015 18.7479 20.085L19.329 20.3969L19.8467 20.6534L20.0779 20.7595L22.2233 18.6125C22.6173 18.2182 23.1374 17.975 23.6926 17.9255C24.2478 17.876 24.8027 18.0233 25.2602 18.3418L26.8657 19.4548C28.6897 20.7373 30.5944 22.1988 32.0748 24.0956C32.3307 24.4248 32.4935 24.8166 32.5462 25.2303C32.5988 25.6439 32.5394 26.064 32.3741 26.4468C31.0488 29.5391 27.6953 32.1722 24.2072 32.0423L23.7322 32.017L23.3633 31.9853L22.9548 31.9378L22.5099 31.8777L22.027 31.7969L21.5108 31.6956L20.963 31.5737L20.3835 31.4248L19.7739 31.2507L19.1374 31.0448C16.2146 30.0537 12.5048 28.1062 8.69849 24.2998C4.89216 20.4935 2.94624 16.7853 1.95508 13.8625L1.74924 13.226L1.57508 12.6164L1.42624 12.0369L1.30274 11.4891C1.26711 11.3175 1.23386 11.1454 1.20299 10.9729L1.12383 10.49L1.06049 10.0451L1.01458 9.63659L0.982909 9.26767L0.957576 8.79267C0.829326 5.31567 3.49091 1.93842 6.56891 0.619502C6.93937 0.459533 7.34506 0.398628 7.74617 0.442763C8.14727 0.486898 8.53001 0.634558 8.85683 0.871252ZM7.38908 3.73392C5.69174 4.62058 4.04824 6.64725 4.12266 8.6755L4.15433 9.19484L4.18916 9.51942L4.23508 9.88358L4.29841 10.2842L4.37916 10.7228L4.48208 11.1946L4.60874 11.7013L4.76074 12.238L4.94124 12.8048C5.00774 12.998 5.07846 13.1959 5.15341 13.3986L5.39724 14.0193L5.67591 14.6637C6.67024 16.8518 8.29158 19.4137 10.9405 22.061C13.5878 24.7083 16.1497 26.3313 18.3378 27.3256L18.9822 27.6043L19.6029 27.8481C19.8056 27.9241 20.0035 27.9948 20.1967 28.0603L20.7635 28.2408L21.3018 28.3928L21.8069 28.5194L22.2787 28.6223L22.7173 28.7031L23.1195 28.7664L23.4837 28.8139L23.8067 28.8456L24.326 28.8773C26.3273 28.9517 28.3698 27.3177 29.2533 25.6425C28.126 24.3204 26.7263 23.2358 25.1826 22.1433L23.9982 21.3184" fill="#8c1111"/>
+                            </svg>
+                            <div>
+                                <span class="block text-sm font-semibold font-[Golos_Text] text-zinc-900">Phone</span>
+                                <a href="tel:(985)-626-5711" class="text-red-800 font-[Golos_Text] hover:underline">
+                                    (985) 626-5711
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mt-1 flex-shrink-0">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#8c1111"/>
+                            </svg>
+                            <div>
+                                <span class="block text-sm font-semibold font-[Golos_Text] text-zinc-900">Address</span>
+                                <span class="text-zinc-700 font-[Golos_Text]">
+                                    21357 Marion Ln<br/>
+                                    Mandeville, LA 70471
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Information -->
+                    <div class="bg-white rounded-xl p-6 border border-gray-200">
+                        <h3 class="text-lg font-semibold font-[Inter] text-zinc-900 mb-3">Additional Information</h3>
+                        <div class="space-y-3">
+                            <div>
+                                <span class="block text-sm font-semibold font-[Golos_Text] text-zinc-900">Business Hours</span>
+                                <span class="text-sm text-zinc-700 font-[Golos_Text]">Monday - Saturday: 7:00 AM - 7:00 PM</span>
+                            </div>
+                            <div>
+                                <span class="block text-sm font-semibold font-[Golos_Text] text-zinc-900">Emergency Service</span>
+                                <span class="text-sm text-zinc-700 font-[Golos_Text]">Available for urgent plumbing issues</span>
+                            </div>
+                            <div>
+                                <span class="block text-sm font-semibold font-[Golos_Text] text-zinc-900">Service Area</span>
+                                <span class="text-sm text-zinc-700 font-[Golos_Text]">All Northshore communities including Hammond, Ponchatoula, Mandeville, Covington, and surrounding areas</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div id="contact-end" class="flex flex-col justify-self-end bg-white rounded-md w-auto h-auto p-4 my-8">
-                <span class="text-2xl font-semibold font-[Golos_Text]"> Get in Touch </span>
-                <span class="text-[12px] font-normal font-[Golos_Text]"> You can reach us anytime </span>
-                <form class="flex flex-col" action="" method="post">
-                    <div class="flex">
-                        <label class="rounded-sm border-[1px] border-gray-300 focus-within:ring-4 focus-within:ring-[#bef5ff] transition-all m-3 p-1" for="first-name">
-                            <input class="w-full outline-none" type="text" id="first-name" placeholder="First name" required>
-                        </label>
-                        <label class="rounded-sm border-[1px] border-gray-300 focus-within:ring-4 focus-within:ring-[#bef5ff] transition-all m-3 p-1" for="last-name">
-                            <input class="w-full outline-none" type="text" id="last-name" placeholder="Last name" required>
-                        </label>
-                    </div>
-                    <label class="flex rounded-sm border-[1px] border-gray-300 focus-within:ring-4 focus-within:ring-[#bef5ff] transition-all m-3 p-1" for="email">
-                        <div data-svg-wrapper class="mr-2.5">
-                            <svg width="23" height="23" viewBox="0 0 30 27.5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M30.25 8.25C30.25 6.7375 29.0125 5.5 27.5 5.5H5.5C3.9875 5.5 2.75 6.7375 2.75 8.25V24.75C2.75 26.2625 3.9875 27.5 5.5 27.5H27.5C29.0125 27.5 30.25 26.2625 30.25 24.75V8.25ZM27.5 8.25L16.5 15.125L5.5 8.25H27.5ZM27.5 24.75H5.5V11L16.5 17.875L27.5 11V24.75Z" fill="#9A9CA0"/>
-                            </svg>
+
+                <!-- Contact Form -->
+                <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+                    <h2 class="text-2xl font-semibold font-[Inter] text-zinc-900 mb-2">Get in Touch</h2>
+                    <p class="text-sm text-zinc-600 font-[Golos_Text] mb-6">
+                        Fill out the form below and we'll get back to you within 24 hours.
+                    </p>
+                    
+                    <form class="space-y-4" action="#" method="post">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="first-name" class="block text-sm font-semibold font-[Golos_Text] text-zinc-700 mb-1">
+                                    First Name
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="first-name" 
+                                    placeholder="John" 
+                                    required
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-transparent"
+                                >
+                            </div>
+                            <div>
+                                <label for="last-name" class="block text-sm font-semibold font-[Golos_Text] text-zinc-700 mb-1">
+                                    Last Name
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="last-name" 
+                                    placeholder="Doe" 
+                                    required
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-transparent"
+                                >
+                            </div>
                         </div>
-                        <input class="w-full outline-none" type="email" id="email" placeholder="Your email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
-                    </label>
-                    <label class="rounded-sm border-[1px] border-gray-300 focus-within:ring-4 focus-within:ring-[#bef5ff] transition-all m-3 p-1" for="phone">
-                        <input class="w-full outline-none" type="tel" id="phone" placeholder="Phone number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
-                    </label>
-                    <label class="rounded-sm border-[1px] border-gray-300 focus-within:ring-4 focus-within:ring-[#bef5ff] transition-all m-3 p-1" for="message">
-                        <textarea class="w-full outline-none" rows="4" id="message" placeholder="How can we help?" required></textarea>
-                    </label>
-                    <button type="submit" class="text-white bg-[#c52121] rounded-3xl py-2.5 cursor-pointer">
-                        Submit request
-                    </button>
-                </form>
+
+                        <div>
+                            <label for="email" class="block text-sm font-semibold font-[Golos_Text] text-zinc-700 mb-1">
+                                Email Address
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                placeholder="john@example.com" 
+                                required
+                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-transparent"
+                            >
+                        </div>
+
+                        <div>
+                            <label for="phone" class="block text-sm font-semibold font-[Golos_Text] text-zinc-700 mb-1">
+                                Phone Number
+                            </label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                placeholder="(985) 123-4567" 
+                                required
+                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-transparent"
+                            >
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-semibold font-[Golos_Text] text-zinc-700 mb-1">
+                                How Can We Help?
+                            </label>
+                            <textarea 
+                                id="message" 
+                                rows="5" 
+                                placeholder="Tell us about your plumbing issue or project..." 
+                                required
+                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-transparent resize-none"
+                            ></textarea>
+                        </div>
+
+                        <button 
+                            type="submit" 
+                            class="w-full bg-red-800 text-white font-semibold font-[Golos_Text] py-3 rounded-lg hover:bg-red-900 transition-colors"
+                        >
+                            Send Message
+                        </button>
+
+                        <p class="text-xs text-zinc-500 font-[Golos_Text] text-center">
+                            By submitting this form, you agree to our privacy policy and consent to be contacted.
+                        </p>
+                    </form>
+                </div>
             </div>
         </div>
+
     </div>
 </Layout>

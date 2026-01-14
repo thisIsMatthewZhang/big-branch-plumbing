@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import CircleIcon from '../components/CircleIcon.astro';
 import LatestBlog from '../components/LatestBlog.astro';
 import Blog from '../components/Blog.astro';
 import { getCollection } from 'astro:content';
@@ -13,50 +12,111 @@ const mostRecentPosts = allBlogPosts.sort((a: any, b: any) => {
 });
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
+const metaTitle = "Plumbing Tips & Blog | Big Branch Plumbing | Northshore Expert Advice";
+const metaDescription = "Professional plumbing tips, DIY guides, and expert advice for homeowners in the Northshore area. Learn how to maintain your plumbing system and prevent costly repairs.";
 ---
 
-<Layout>
-    <div id="blog-page-container" class="p-5">
-        <div id="blog-top" class="flex flex-col max-w-[25pc]">
-            <span class="text-2xl font-semibold font-[Inter]"> Plumbing Tips, Tricks, and Expert Advice All in One Place. </span>
-            <span class="text-[12px] font-[Golos_Text]"> Stay informed with professional insights, DIY guides, and the latest plumbing solutions for your home or business.</span>
-        </div>
-        <div class="flex mt-5"> <div class="relative font-[Golos_Text] top-1.5 left-1"> <CircleIcon width="20" height="20" color="#c52121" /> </div> Latest Blogs </div>
-        <div id="latest-blogs" class="grid grid-cols-2 gap-10">  
-           { mostRecentPosts.slice(0, 2).map((post: any) =>  <LatestBlog blogCover={ post.data.cover } 
-                                                            blogCoverAlt={ post.data.coverAlt } 
-                                                            blogTitle={ post.data.title } 
-                                                            blogDate={ post.data.pubDate.toDateString() } 
-                                                            blogDay={ post.data.pubDate.getDate() } 
-                                                            blogMonth={ months[post.data.pubDate.getMonth()] } 
-                                                            blogYear={ post.data.pubDate.getFullYear() }
-                                                            blogUrl={ post.id } />  ) 
-            
-           }
-        </div>
-        <div id="blog-sorter" class="relative flex flex-col left-[10vw] bottom-12.5 m-3">
-            <div class="text-[12px] text-[#1f2022]/80 font-semibold font-[Golos_Text]"> All Blogs </div>
-            <div class="font-semibold font-[Golos_Text] max-w-[14pc] my-1 leading-5"> Your Go-To Resource for All Things Plumbing </div>
-            <div class="flex justify-around items-center w-60 mt-1 ml-3">
-                <div class="opacity-50 text-[12px] font-[Golos_Text]"> Sort by </div>
-                <button id="most-recent" type="button" class="text-white text-[12px] bg-[#8c1111] rounded-[28px] font-[Golos_Text] px-3 py-1 cursor-pointer"> Most Recent </button>
-                <button id="most-viewed" type="button" class="text-[#363941]/50 text-[12px] bg-white border-[1px] font-[Golos_Text] border-[#363941]/50 rounded-[28px] px-3 py-1 cursor-pointer"> Most Viewed </button>
+<Layout title={metaTitle} description={metaDescription}>
+    <div id="blog-page-container" class="w-full">
+        
+        <!-- Hero Section -->
+        <div class="bg-[#f7f9fb] w-full py-12 md:py-16">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-10">
+                    <h1 class="text-3xl md:text-4xl font-semibold font-[Inter] text-zinc-900 mb-3">
+                        Plumbing Tips, Tricks, and Expert Advice
+                    </h1>
+                    <p class="text-zinc-600 font-[Golos_Text] text-lg max-w-2xl mx-auto">
+                        Stay informed with professional insights, DIY guides, and the latest plumbing solutions for your home or business.
+                    </p>
+                </div>
+
+                <!-- Latest Blogs Section -->
+                {mostRecentPosts.length > 0 && (
+                    <div class="mb-12">
+                        <h2 class="text-2xl font-semibold font-[Inter] text-zinc-900 mb-6 flex items-center gap-3">
+                            <span class="inline-block w-2 h-2 bg-red-800 rounded-full"></span>
+                            Latest Posts
+                        </h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">  
+                            {mostRecentPosts.slice(0, 2).map((post: any) => (
+                                <LatestBlog 
+                                    blogCover={ post.data.cover } 
+                                    blogCoverAlt={ post.data.coverAlt } 
+                                    blogTitle={ post.data.title } 
+                                    blogDate={ post.data.pubDate.toDateString() } 
+                                    blogDay={ post.data.pubDate.getDate() } 
+                                    blogMonth={ months[post.data.pubDate.getMonth()] } 
+                                    blogYear={ post.data.pubDate.getFullYear() }
+                                    blogUrl={ post.id } 
+                                />
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                <!-- All Blogs Section -->
+                <div>
+                    <h2 class="text-2xl font-semibold font-[Inter] text-zinc-900 mb-6 flex items-center gap-3">
+                        <span class="inline-block w-2 h-2 bg-red-800 rounded-full"></span>
+                        All Plumbing Resources
+                    </h2>
+                    
+                    <!-- Sort Buttons -->
+                    <div class="flex flex-wrap gap-3 mb-6">
+                        <span class="text-sm font-semibold font-[Golos_Text] text-zinc-600 self-center">Sort by:</span>
+                        <button id="most-recent" type="button" class="text-white text-sm bg-red-800 rounded-full font-[Golos_Text] px-4 py-2 cursor-pointer hover:bg-red-900 transition-colors">
+                            Most Recent
+                        </button>
+                        <button id="most-viewed" type="button" class="text-zinc-700 text-sm bg-white border border-zinc-300 rounded-full font-[Golos_Text] px-4 py-2 cursor-pointer hover:bg-gray-50 transition-colors">
+                            Most Viewed
+                        </button>
+                    </div>
+
+                    <!-- Blog Grid -->
+                    <div id="sorted-blogs" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {mostRecentPosts.slice(0, 6).map((post) => (
+                            <Blog 
+                                blogCover={ post.data.cover } 
+                                blogCoverAlt={ post.data.coverAlt } 
+                                blogTitle={ post.data.title } 
+                                blogUrl={ post.id } 
+                            />
+                        ))}
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="mt-12 bg-white rounded-xl p-8 text-center shadow-md">
+                    <h3 class="text-2xl font-semibold font-[Inter] text-zinc-900 mb-3">Need Professional Plumbing Help?</h3>
+                    <p class="text-zinc-700 font-[Golos_Text] mb-6 max-w-2xl mx-auto">
+                        While our blog offers helpful tips, some plumbing issues require professional expertise. 
+                        Don't hesitate to call the experts at Big Branch Plumbing.
+                    </p>
+                    <a href="/contact/" class="inline-block bg-red-800 text-white font-semibold font-[Golos_Text] px-8 py-3 rounded-lg hover:bg-red-900 transition-colors text-lg">
+                        Request Service
+                    </a>
+                </div>
             </div>
         </div>
-        <div id="sorted-blogs" class="grid grid-cols-2 gap-y-10 justify-center w-screen">
-            { mostRecentPosts.slice(0, 4).map((post) => <Blog blogCover={ post.data.cover } blogCoverAlt={ post.data.coverAlt } blogTitle={ post.data.title } blogUrl={ post.id } />) }
-        </div>
+
     </div>
+
     <script>
-        
         document.addEventListener('click', e => {
             const targetElement = e.target as HTMLElement;
             if (targetElement.id === 'most-recent' || targetElement.id === 'most-viewed') {
                 const otherElement = document.getElementById(targetElement.id === 'most-recent' ? 'most-viewed' : 'most-recent') as HTMLElement;
-                targetElement.className = 'text-white text-[12px] bg-[#8c1111] rounded-[28px] font-[Golos_Text] px-3 py-1 cursor-pointer transition-all';
-                otherElement.className = 'text-[#363941]/50 text-[12px] bg-white border-[1px] border-[#363941]/50 rounded-[28px] font-[Golos_Text] px-3 py-1 cursor-pointer transition-all';
+                
+                // Update active button
+                targetElement.className = 'text-white text-sm bg-red-800 rounded-full font-[Golos_Text] px-4 py-2 cursor-pointer hover:bg-red-900 transition-colors';
+                
+                // Update inactive button
+                otherElement.className = 'text-zinc-700 text-sm bg-white border border-zinc-300 rounded-full font-[Golos_Text] px-4 py-2 cursor-pointer hover:bg-gray-50 transition-colors';
+                
+                // Note: In a real implementation, you would sort the blog posts here
+                // For now, we're just updating the button styles
             }
         });
-        
     </script>
-</Layout>  
+</Layout>

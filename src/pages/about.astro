@@ -1,85 +1,199 @@
 ---
 import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
-import Image from 'astro/components/Image.astro';
-import Worker from '../assets/industrial-worker.png';
-import Technician from '../assets/technician.png';
-import PlumberTeamWhite from '../assets/plumber-team-white.png';
+import { Image } from 'astro:assets';
+import File4 from '../assets/bathroom/File4.JPG';
+import Check from '../components/icons/Check.astro';
+
+const metaTitle = "About Big Branch Plumbing | Northshore Plumbing Experts Since 1986";
+const metaDescription = "Learn about Big Branch Plumbing - your trusted Northshore plumber with 38+ years of experience serving Hammond, Mandeville, Covington, and surrounding communities.";
 ---
 
-
-<Layout>
-    <div id="about-page-container">
-        <div class="flex bg-[#f7f9fb] p-5">
-            <div id="about-page-start" class="flex flex-col rounded-md bg-white max-w-[50%] mx-4 px-4 py-2">
-                <span class="text-[#8c1111] font-semibold font-[Inter]"> How we started </span>
-                <span class="text-2xl font-bold font-[Golos_Text] mb-5 max-w-[18pc]"> Our Mission is Reliable Plumbing, Rooted in Community </span>
-                <span class="text-[12px] font-[Golos_Text]"> 
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Phasellus vitae dui ultrices, feugiat neque id, pulvinar ligula. 
-                    Nam et lorem vitae lectus condimentum feugiat vulputate nec sapien. 
-                    Suspendisse nec accumsan purus. Cras et gravida tortor, nec mollis ipsum. 
-                    Vivamus a justo dolor. Integer a ligula nisi. Cras at lacinia velit. 
-                    Curabitur eu ligula arcu.
-                </span>
-            </div>
-            <div id="about-page-end">
-                <div class="bg-linear-to-br from-[#9b0000] from-25% via-[#ff0000] via-50% to-white to-75% rounded-lg">
-                    <Image loading={'eager'} src={ PlumberTeamWhite } alt="team of plumbers wearing white" />
+<Layout title={metaTitle} description={metaDescription}>
+    <div id="about-page-container" class="w-full">
+        
+        <!-- Hero Section -->
+        <div class="bg-[#f7f9fb] w-full py-12 md:py-16">
+            <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-8 items-center">
+                <div class="w-full md:w-1/2 bg-white rounded-xl shadow-md p-6 md:p-8">
+                    <span class="text-red-800 font-semibold font-[Inter] text-sm uppercase tracking-wide"> How We Started </span>
+                    <h1 class="text-3xl md:text-4xl font-bold font-[Golos_Text] text-zinc-900 mb-4 mt-2 leading-tight">
+                        Our Mission: Reliable Plumbing Rooted in Community
+                    </h1>
+                    <p class="text-zinc-700 font-[Golos_Text] leading-relaxed mb-4">
+                        Big Branch Plumbing was founded in 1986 with a simple mission: provide honest, reliable plumbing services 
+                        to our Northshore neighbors. For over 38 years, we've built our reputation on quality workmanship, 
+                        transparent pricing, and treating every customer like family.
+                    </p>
+                    <p class="text-zinc-700 font-[Golos_Text] leading-relaxed">
+                        What started as a small operation has grown into one of the most trusted plumbing companies in 
+                        Louisiana's Northshore region. But our core values remain the same - integrity, expertise, and 
+                        commitment to customer satisfaction.
+                    </p>
                 </div>
-                <div class="grid grid-cols-2 place-items-center gap-2 bg-white rounded-md w-full h-max p-3 mt-3">
-                    <div class="flex justify-evenly items-center bg-[#f5f6f7] rounded-md w-full h-full p-3"> <span class="text-[#440c0c] text-2xl font-[MuseoModerno]"> 38 </span> <span class="font-[Golos_Text]"> Years Experience </span> </div>
-                    <div class="flex justify-evenly items-center bg-[#f5f6f7] rounded-md w-full h-full p-3"> <span class="text-[#440c0c] text-2xl font-[MuseoModerno]"> 100+ </span> <span class="font-[Golos_Text]"> Projects </span>  </div>
-                    <div class="flex justify-evenly items-center bg-[#f5f6f7] rounded-md w-full h-full p-3"> <span class="text-[#440c0c] text-2xl font-[MuseoModerno]"> 46 </span> <span class="font-[Golos_Text]"> Positive Reviews </span> </div>
-                    <div class="flex justify-evenly items-center bg-[#f5f6f7] rounded-md w-full h-full p-3"> <span class="text-[#440c0c] text-2xl font-[MuseoModerno]"> 100% </span> <span class="font-[Golos_Text]"> Certified </span> </div>
-                </div>
-            </div>
-        </div>
-        <div class="m-5">
-            <span class="text-2xl font-[Golos_Text] m-5"> Meet the team </span>
-            <div class="grid grid-cols-3 gap-20 m-10 place-items-center">
-                <Image loading={'eager'} class="bg-[#fa6969]/12 rounded-lg object-cover w-full h-full" src={ Worker } alt="industrial worker" />
-                <div class="w-full h-full">
-                    <Image loading={'eager'} class="bg-[#fa6969]/12 rounded-lg w-full h-full" src={ Technician } alt="technician" />
-                    <div class="relative justify-self-center bottom-20 bg-white rounded-lg p-2 text-center w-[75%] h-max font-[Golos_Text] shadow-md">
-                        Derrick Johnson
-                        <div class="text-[10px] font-[Golos_Text]">Technician</div>
+                
+                <div class="w-full md:w-1/2">
+                    <div class="relative">
+                        <Image 
+                            loading={'eager'} 
+                            src={ File4 } 
+                            alt="Professional plumber working on pipes" 
+                            class="rounded-xl shadow-lg w-full h-auto"
+                        />
+                        <div class="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-md p-4 min-w-[140px]">
+                            <div class="flex items-center justify-center gap-2 mb-1">
+                                <span class="text-3xl font-bold font-[MuseoModerno] text-red-800">38+</span>
+                                <span class="text-sm font-[Golos_Text] font-semibold text-zinc-700 leading-tight">Years<br/>Serving<br/>Northshore</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <Image loading={'eager'} class="bg-[#fa6969]/12 rounded-lg object-cover w-full h-full" src={ Worker } alt="industrial worker" />
-                <Image loading={'lazy'} class="bg-[#fa6969]/12 rounded-lg object-cover w-full h-full" src={ Worker } alt="industrial worker" />
-                <Image loading={'lazy'} class="bg-[#fa6969]/12 rounded-lg object-cover w-full h-full" src={ Technician } alt="technician" />
-                <Image loading={'lazy'} class="bg-[#fa6969]/12 rounded-lg object-cover w-full h-full" src={ Worker } alt="industrial worker" />
             </div>
         </div>
 
-        <div class="flex justify-evenly my-10">
-            <div class="flex flex-col bg-[#f5f6f7] rounded-md max-w-[50%] mx-4 px-4 py-2">
-                <span class="text-[#8c1111] font-semibold font-[Inter]"> Our Vision </span>
-                <span class="text-2xl font-bold font-[Inter] mb-5 max-w-[18pc]"> Affordable and Reliable Plumbing Help </span>
-                <span class="text-[12px] font-normal font-[Golos_Text]"> 
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Phasellus vitae dui ultrices, feugiat neque id, pulvinar ligula. 
-                    Nam et lorem vitae lectus condimentum feugiat vulputate nec sapien. 
-                    Suspendisse nec accumsan purus. Cras et gravida tortor, nec mollis ipsum. 
-                    Vivamus a justo dolor. Integer a ligula nisi. Cras at lacinia velit. 
-                    Curabitur eu ligula arcu.
-                </span>
+        <!-- Stats Section -->
+        <div class="bg-white w-full py-12">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-[#f7f9fb] rounded-lg p-6 text-center">
+                        <div class="text-4xl font-bold font-[MuseoModerno] text-red-800 mb-2">38+</div>
+                        <div class="text-sm font-[Golos_Text] font-semibold text-zinc-700">Years Experience</div>
+                    </div>
+                    <div class="bg-[#f7f9fb] rounded-lg p-6 text-center">
+                        <div class="text-4xl font-bold font-[MuseoModerno] text-red-800 mb-2">50+</div>
+                        <div class="text-sm font-[Golos_Text] font-semibold text-zinc-700">5-Star Reviews</div>
+                    </div>
+                    <div class="bg-[#f7f9fb] rounded-lg p-6 text-center">
+                        <div class="text-4xl font-bold font-[MuseoModerno] text-red-800 mb-2">1000+</div>
+                        <div class="text-sm font-[Golos_Text] font-semibold text-zinc-700">Projects Completed</div>
+                    </div>
+                    <div class="bg-[#f7f9fb] rounded-lg p-6 text-center">
+                        <div class="text-4xl font-bold font-[MuseoModerno] text-red-800 mb-2">100%</div>
+                        <div class="text-sm font-[Golos_Text] font-semibold text-zinc-700">Licensed & Insured</div>
+                    </div>
+                </div>
             </div>
-            <div class="flex flex-col bg-[#f5f6f7] rounded-md max-w-[50%] mx-4 px-4 py-2">
-                <span class="text-[#8c1111] font-semibold font-[Inter]"> Our Mission </span>
-                <span class="text-2xl font-bold font-[Inter] mb-5 max-w-[18pc]"> Local and Certified Problem Solving </span>
-                <span class="text-[12px] font-normal font-[Golos_Text]"> 
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Phasellus vitae dui ultrices, feugiat neque id, pulvinar ligula. 
-                    Nam et lorem vitae lectus condimentum feugiat vulputate nec sapien. 
-                    Suspendisse nec accumsan purus. Cras et gravida tortor, nec mollis ipsum. 
-                    Vivamus a justo dolor. Integer a ligula nisi. Cras at lacinia velit. 
-                    Curabitur eu ligula arcu.
-                </span>
+        </div>
+
+        <!-- Why Choose Us Section -->
+        <div class="bg-[#f7f9fb] w-full py-12 md:py-16">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-semibold font-[Inter] text-zinc-900 mb-3">Why Choose Big Branch Plumbing?</h2>
+                    <p class="text-zinc-600 font-[Golos_Text] text-lg">The difference is in our dedication to excellence</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Experience -->
+                    <div class="bg-white rounded-xl p-6 shadow-md">
+                        <div class="flex items-center gap-3 mb-4">
+                            <Check size={28} color="#8c1111" />
+                            <h3 class="text-xl font-semibold font-[Inter] text-zinc-900">Decades of Experience</h3>
+                        </div>
+                        <p class="text-zinc-700 font-[Golos_Text] leading-relaxed mb-4">
+                            With 38+ years serving the Northshore, we've encountered and solved every type of plumbing challenge. 
+                            Our experience means faster diagnostics and more effective solutions for your home or business.
+                        </p>
+                        <div class="flex items-start gap-2 mb-2">
+                            <Check size={16} color="#8c1111" />
+                            <span class="text-sm font-[Golos_Text] text-zinc-700">Licensed Master Plumbers</span>
+                        </div>
+                        <div class="flex items-start gap-2 mb-2">
+                            <Check size={16} color="#8c1111" />
+                            <span class="text-sm font-[Golos_Text] text-zinc-700">Continuously Trained Professionals</span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <Check size={16} color="#8c1111" />
+                            <span class="text-sm font-[Golos_Text] text-zinc-700">Up-to-Code on All Regulations</span>
+                        </div>
+                    </div>
+
+                    <!-- Local Expertise -->
+                    <div class="bg-white rounded-xl p-6 shadow-md">
+                        <div class="flex items-center gap-3 mb-4">
+                            <Check size={28} color="#8c1111" />
+                            <h3 class="text-xl font-semibold font-[Inter] text-zinc-900">Northshore Specialists</h3>
+                        </div>
+                        <p class="text-zinc-700 font-[Golos_Text] leading-relaxed mb-4">
+                            We understand the unique plumbing challenges of Louisiana's Northshore - from soil conditions 
+                            to water quality issues. Our local knowledge saves you time and money on every job.
+                        </p>
+                        <div class="flex items-start gap-2 mb-2">
+                            <Check size={16} color="#8c1111" />
+                            <span class="text-sm font-[Golos_Text] text-zinc-700">Deep Knowledge of Local Building Codes</span>
+                        </div>
+                        <div class="flex items-start gap-2 mb-2">
+                            <Check size={16} color="#8c1111" />
+                            <span class="text-sm font-[Golos_Text] text-zinc-700">Understanding of Regional Water Systems</span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <Check size={16} color="#8c1111" />
+                            <span class="text-sm font-[Golos_Text] text-zinc-700">Fast Response Times Across the Area</span>
+                        </div>
+                    </div>
+
+                    <!-- Customer Focus -->
+                    <div class="bg-white rounded-xl p-6 shadow-md">
+                        <div class="flex items-center gap-3 mb-4">
+                            <Check size={28} color="#8c1111" />
+                            <h3 class="text-xl font-semibold font-[Inter] text-zinc-900">Customer-First Approach</h3>
+                        </div>
+                        <p class="text-zinc-700 font-[Golos_Text] leading-relaxed mb-4">
+                            Your satisfaction is our top priority. We provide upfront pricing, clear communication, and 
+                            stand behind every job with our workmanship guarantee. No surprises, no hidden fees.
+                        </p>
+                        <div class="flex items-start gap-2 mb-2">
+                            <Check size={16} color="#8c1111" />
+                            <span class="text-sm font-[Golos_Text] text-zinc-700">Upfront Pricing - No Hidden Costs</span>
+                        </div>
+                        <div class="flex items-start gap-2 mb-2">
+                            <Check size={16} color="#8c1111" />
+                            <span class="text-sm font-[Golos_Text] text-zinc-700">Clean, Professional Service</span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <Check size={16} color="#8c1111" />
+                            <span class="text-sm font-[Golos_Text] text-zinc-700">100% Satisfaction Guarantee</span>
+                        </div>
+                    </div>
+
+                    <!-- Community Commitment -->
+                    <div class="bg-white rounded-xl p-6 shadow-md">
+                        <div class="flex items-center gap-3 mb-4">
+                            <Check size={28} color="#8c1111" />
+                            <h3 class="text-xl font-semibold font-[Inter] text-zinc-900">Community Commitment</h3>
+                        </div>
+                        <p class="text-zinc-700 font-[Golos_Text] leading-relaxed mb-4">
+                            As a locally owned and operated business, we're invested in our community's success. 
+                            We support local causes and treat every customer like a neighbor - because you are.
+                        </p>
+                        <div class="flex items-start gap-2 mb-2">
+                            <Check size={16} color="#8c1111" />
+                            <span class="text-sm font-[Golos_Text] text-zinc-700">Locally Owned & Operated</span>
+                        </div>
+                        <div class="flex items-start gap-2 mb-2">
+                            <Check size={16} color="#8c1111" />
+                            <span class="text-sm font-[Golos_Text] text-zinc-700">Supporting Local Businesses</span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <Check size={16} color="#8c1111" />
+                            <span class="text-sm font-[Golos_Text] text-zinc-700">Giving Back to Northshore Communities</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="mt-10 bg-white rounded-xl p-8 text-center shadow-md">
+                    <h3 class="text-2xl font-semibold font-[Inter] text-zinc-900 mb-3">Ready to Experience the Big Branch Difference?</h3>
+                    <p class="text-zinc-700 font-[Golos_Text] mb-6 max-w-2xl mx-auto">
+                        Join hundreds of satisfied Northshore homeowners who trust us for all their plumbing needs. 
+                        From routine maintenance to emergency repairs, we're here to help.
+                    </p>
+                    <a href="/contact/" class="inline-block bg-red-800 text-white font-semibold font-[Golos_Text] px-8 py-3 rounded-lg hover:bg-red-900 transition-colors text-lg">
+                        Contact Us Today
+                    </a>
+                </div>
             </div>
         </div>
 
     </div>
-
 </Layout>
